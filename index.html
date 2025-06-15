@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorTv Canal del Pueblo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="hero">
+            <video autoplay loop muted>
+                <source src="assets/videos/fondo.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <div class="overlay">
+                <img src="assets/LogoNorTv.PNG" alt="Logo NorTv" class="logo">
+                <h1>Conectando contigo, donde estés</h1>
+                <a href="#programacion" class="btn">Ver Programación</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="quienes-somos">
+        <h2>Quiénes Somos</h2>
+        <p>NorTv es mucho más que un canal: es inspiración, es comunidad, es el espacio donde las historias de nuestra gente cobran vida. A través de nuestro programa <strong>Inspírate</strong>, celebramos los logros, sueños y talentos de quienes transforman nuestro entorno. ¡Déjate inspirar cada semana con historias que motivan y conectan!</p>
+        <div class="publicidad-quienes-somos piramide-publicidad">
+            <div class="piramide-logo">
+                <img src="assets/LogoNorTv.PNG" alt="Logo NorTv" style="width:110px;">
+            </div>
+            <div class="piramide-promocion">
+                <span>¡Promoción especial este mes!<br>Anúnciate por 1 mes y te regalamos la producción de tu primer spot</span>
+            </div>
+            <div class="piramide-imagenes">
+                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Grabación de spot publicitario" class="piramide-img">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Cámara profesional" class="piramide-img">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Producción de video" class="piramide-img">
+            </div>
+            <div class="publicidad-info">
+                <h3>¡HAZ QUE TU NEGOCIO BRILLE EN LA PANTALLA!</h3>
+                <p class="publicidad-desc">¿Quieres aumentar tus ventas y que todos conozcan tu marca?<br>Tu negocio merece ser visto. ¡Lleva tu mensaje a hogares, oficinas y comercios a través de la televisión!</p>
+                <ul class="publicidad-lista">
+                    <li>✔️ Alcance masivo: miles de espectadores diarios</li>
+                    <li>✔️ Spots publicitarios en horarios estratégicos</li>
+                    <li>✔️ Paquetes accesibles para todo tipo de negocio</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="programacion">
+        <h2>Programación</h2>
+        <div class="programacion-panel">
+            <div class="dias-lista">
+                <button class="dia-btn" data-dia="Lunes">Lunes</button>
+                <button class="dia-btn" data-dia="Martes">Martes</button>
+                <button class="dia-btn" data-dia="Miércoles">Miércoles</button>
+                <button class="dia-btn" data-dia="Jueves">Jueves</button>
+                <button class="dia-btn" data-dia="Viernes">Viernes</button>
+            </div>
+            <div class="programacion-detalle">
+                <!-- Aquí se mostrará la programación del día seleccionado -->
+            </div>
+        </div>
+    </section>
+
+    <section id="nuestros-programas">
+        <h2>Nuestros Programas</h2>
+        <div class="programas">
+            <!-- Card destacada: Noticiero -->
+            <div class="card card-destacada">
+                <div class="slider-imagenes" data-programa="noticiero">
+                    <img src="assets/programas/noticiero/1.webp" alt="Noticiero imagen 1" class="slider-img active">
+                    <img src="assets/programas/noticiero/2.jpeg" alt="Noticiero imagen 2" class="slider-img">
+                    <img src="assets/programas/noticiero/3.jpg" alt="Noticiero imagen 3" class="slider-img">
+                </div>
+                <h3>Noticias al Día</h3>
+                <p>Resumen informativo local, nacional e internacional. Conduce: Ana López.</p>
+                <div class="horario">Lunes a Viernes 8:00 AM – 9:00 AM</div>
+            </div>
+            <!-- Card destacada: Pablo Escobar -->
+            <div class="card card-destacada">
+                <div class="slider-imagenes" data-programa="pablo-escobar">
+                    <img src="assets/programas/pablo-escobar/pablo1.jpg" alt="Pablo Escobar imagen 1" class="slider-img active">
+                    <img src="assets/programas/pablo-escobar/pablo1.jpeg" alt="Pablo Escobar imagen 2" class="slider-img">
+                    <img src="assets/programas/pablo-escobar/pablo2.jpg" alt="Pablo Escobar imagen 3" class="slider-img">
+                    <img src="assets/programas/pablo-escobar/pablo2.jpeg" alt="Pablo Escobar imagen 4" class="slider-img">
+                </div>
+                <h3>Pablo Escobar El Patrón</h3>
+                <p>Serie biográfica sobre el narcotraficante colombiano. Protagonizada por Andrés Parra.</p>
+                <div class="horario">Lunes a Viernes 12:00 MD – 1:00 PM</div>
+            </div>
+            <!-- Card destacada: El Rey del Ganado -->
+            <div class="card card-destacada">
+                <div class="slider-imagenes" data-programa="rey-ganado">
+                    <img src="assets/programas/rey-ganado/rey ganado1.jpg" alt="El Rey del Ganado imagen 1" class="slider-img active">
+                    <img src="assets/programas/rey-ganado/rey ganado2.jpg" alt="El Rey del Ganado imagen 2" class="slider-img">
+                    <img src="assets/programas/rey-ganado/rey ganado3.jpg" alt="El Rey del Ganado imagen 3" class="slider-img">
+                </div>
+                <h3>El Rey del Ganado</h3>
+                <p>Novela brasileña de éxito internacional. Protagonizada por Antonio Fagundes.</p>
+                <div class="horario">Lunes a Viernes 6:00 PM – 7:00 PM</div>
+            </div>
+            <!-- Card destacada: Zona Musical -->
+            <div class="card card-destacada">
+                <div class="slider-imagenes" data-programa="zona-musical">
+                    <img src="assets/programas/zona-musical/musica1.png" alt="Zona Musical imagen 1" class="slider-img active">
+                    <img src="assets/programas/zona-musical/musica2.jpg" alt="Zona Musical imagen 2" class="slider-img">
+                    <img src="assets/programas/zona-musical/musica3.png" alt="Zona Musical imagen 3" class="slider-img">
+                    <img src="assets/programas/zona-musical/musica4.jpg" alt="Zona Musical imagen 4" class="slider-img">
+                </div>
+                <h3>Zona Musical</h3>
+                <p>Espacio dedicado a la mejor música nacional e internacional.</p>
+                <div class="horario">Lunes a Viernes 4:00 PM – 5:00 PM</div>
+            </div>
+            <!-- ...existing code for otros programas... -->
+        </div>
+    </section>
+
+    <section id="cobertura">
+        <div style="width:100%;max-width:500px;margin:1.5rem auto 1rem auto;">
+            <h3 style="text-align:center;margin-bottom:0.5rem;">Ubicación de Oficinas NorTv - Pueblo Nuevo, Jinotega</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.964964073282!2d-85.9993998240497!3d13.09185581243837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74e6e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sPueblo%20Nuevo%2C%20Jinotega%2C%20Nicaragua!5e0!3m2!1ses!2sni!4v1718130000000!5m2!1ses!2sni"
+                width="100%" height="300" style="border:0;border-radius:12px;box-shadow:0 2px 12px rgba(20,33,61,0.10);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <h2 style="margin-top:1.5rem;">Nuestro Alcance Actual</h2>
+        <div class="zonas-scroll-lista" id="zonas-cobertura-table"></div>
+    </section>
+
+    <footer>
+        <h2>Contacto</h2>
+        <div class="footer-contacto-panel">
+            <form action="contacto.html" method="post">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <div class="footer-redes-panel">
+                <p style="font-weight:600;">Síguenos en redes sociales</p>
+                <div class="redes-sociales redes-grandes">
+                    <a href="https://facebook.com" target="_blank" title="Facebook" class="icono-red">
+                        <img src="assets/Facebook.svg" alt="Facebook" style="width:56px;height:56px;vertical-align:middle;">
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" title="TikTok" class="icono-red">
+                        <img src="assets/tiktok.png" alt="TikTok" style="width:56px;height:56px;vertical-align:middle;">
+                    </a>
+                </div>
+                <div class="footer-nombre-nortv" style="text-align:center;font-weight:700;font-size:1.1em;margin-top:0.5em;">NorTV Canal</div>
+                <div class="footer-info-contacto">
+                    <p><span style="font-weight:600;">WhatsApp:</span> +505 84292282 / +505 83544153</p>
+                    <!-- El correo se agregará después -->
+                    <p>Dirección: Calle Ejemplo 123</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

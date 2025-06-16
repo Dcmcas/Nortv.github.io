@@ -326,6 +326,61 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
 .icono-red img { filter: grayscale(0.1) brightness(1.1); }
 .icono-red:hover img { filter: grayscale(0) brightness(1.2) drop-shadow(0 2px 8px rgba(186, 255, 57, 0.3)); }
 
+/* --- MEJORAS DE LEGIBILIDAD Y RESPONSIVIDAD EN FOOTER Y CONTACTO --- */
+body.modo-oscuro .footer-contacto-panel form,
+body.modo-oscuro .footer-contacto-panel form input,
+body.modo-oscuro .footer-contacto-panel form textarea {
+  background: #181C22 !important;
+  color: #F4F7FB !important;
+  border: 2px solid var(--azul-tv) !important;
+  box-shadow: var(--sombra-tv-fuerte);
+}
+body.modo-oscuro .footer-contacto-panel form input::placeholder,
+body.modo-oscuro .footer-contacto-panel form textarea::placeholder {
+  color: #F4F7FB !important;
+  opacity: 1 !important;
+}
+body.modo-oscuro .footer-contacto-panel button[type="submit"] {
+  background: var(--azul-tv) !important;
+  color: #fff !important;
+  border: 2px solid var(--azul-tv) !important;
+  box-shadow: var(--sombra-tv-fuerte);
+}
+body.modo-oscuro .footer-contacto-panel button[type="submit"]:hover {
+  background: var(--amarillo-tv) !important;
+  color: var(--azul-tv) !important;
+}
+body.modo-oscuro .footer-redes-panel,
+body.modo-oscuro .footer-info-contacto {
+  background: #181C22 !important;
+  color: #F4F7FB !important;
+}
+
+/* Footer logo y texto responsivo en móvil */
+@media (max-width: 600px) {
+  .footer-redes-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+  }
+  .footer-nombre-nortv {
+    text-align: center !important;
+    font-size: 1.2em !important;
+    margin-top: 0.7em !important;
+    margin-bottom: 0.2em !important;
+    word-break: break-word;
+  }
+  .redes-sociales {
+    justify-content: center !important;
+    gap: 1em !important;
+  }
+  .footer-redes-panel img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
 /* =============================
    Animaciones
    ============================= */
@@ -1365,4 +1420,66 @@ ul, .publicidad-lista, .publicidad-lista li {
 }
 .publicidad-lista li::marker, .publicidad-lista li::before {
   color: var(--amarillo-tv) !important;
+}
+body.modo-oscuro footer h2 {
+  color: #F4F7FB !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+body.modo-oscuro footer {
+  background: #181C22 !important;
+  color: #F4F7FB !important;
+}
+body.modo-oscuro .footer-contacto-panel,
+body.modo-oscuro .footer-redes-panel {
+  background: #23272F !important;
+  border: 2px solid #3B82F6 !important;
+  box-shadow: var(--sombra-tv-fuerte);
+}
+body.modo-oscuro .footer-contacto-panel form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+body.modo-oscuro .footer-contacto-panel form input,
+body.modo-oscuro .footer-contacto-panel form textarea {
+  background: #181C22 !important;
+  color: #F4F7FB !important;
+  border: 2px solid #3B82F6 !important;
+}
+body.modo-oscuro .footer-contacto-panel form input::placeholder,
+body.modo-oscuro .footer-contacto-panel form textarea::placeholder {
+  color: #B0B8C1 !important;
+  opacity: 1 !important;
+}
+body.modo-claro footer {
+  background: #fff !important;
+  color: #1A2233 !important;
+}
+body.modo-claro .footer-contacto-panel,
+body.modo-claro .footer-redes-panel {
+  background: transparent !important;
+  border: 2px solid #2563EB !important;
+  box-shadow: var(--sombra-tv);
+}
+body.modo-claro .footer-contacto-panel form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+body.modo-claro .footer-contacto-panel form input,
+body.modo-claro .footer-contacto-panel form textarea {
+  background: #fff !important;
+  color: #1A2233 !important;
+  border: 2px solid #2563EB !important;
+}
+body.modo-claro .footer-contacto-panel form input::placeholder,
+body.modo-claro .footer-contacto-panel form textarea::placeholder {
+  color: #4B5563 !important;
+  opacity: 1 !important;
+}
+body.modo-claro footer h2 {
+  color: #1A2233 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
 }

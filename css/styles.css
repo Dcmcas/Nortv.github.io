@@ -2,18 +2,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* =============================
-   Paleta institucional y base
+   Paleta TV profesional y base
    ============================= */
 :root {
-  --verde-principal: #819A91;
-  --verde-secundario: #A7C1A8;
-  --beige-suave: #D1D8BE;
-  --beige-claro: #EEEFE0;
-  --sombra-verde: 0 4px 24px rgba(129,154,145,0.18);
-  --sombra-verde-fuerte: 0 8px 32px rgba(129,154,145,0.28);
-  --verde-borde: #819A91;
-  --oscuro: #23272f;
-  --claro: #EEEFE0;
+  /* Modo claro */
+  --fondo-principal: #F4F7FB;
+  --fondo-secundario: #FFFFFF;
+  --texto-principal: #1A2233;
+  --texto-secundario: #4B5563;
+  --azul-tv: #2563EB;
+  --azul-tv-claro: #3B82F6;
+  --rojo-tv: #EF4444;
+  --amarillo-tv: #FACC15;
+  --amarillo-tv-claro: #FDE047;
+  --sombra-tv: 0 4px 24px rgba(37,99,235,0.10);
+  --sombra-tv-fuerte: 0 8px 32px rgba(37,99,235,0.18);
+  --borde-tv: #2563EB;
+}
+body.modo-oscuro {
+  /* Modo oscuro */
+  --fondo-principal: #131A24;
+  --fondo-secundario: #1A2233;
+  --texto-principal: #F4F7FB;
+  --texto-secundario: #B0B8C1;
+  --azul-tv: #3B82F6;
+  --azul-tv-claro: #60A5FA;
+  --rojo-tv: #F87171;
+  --amarillo-tv: #FDE047;
+  --amarillo-tv-claro: #FEF9C3;
+  --sombra-tv: 0 4px 24px rgba(59,130,246,0.18);
+  --sombra-tv-fuerte: 0 8px 32px rgba(59,130,246,0.28);
+  --borde-tv: #3B82F6;
+}
+body.modo-claro {
+  /* Modo claro explícito */
+  --fondo-principal: #F4F7FB;
+  --fondo-secundario: #FFFFFF;
+  --texto-principal: #1A2233;
+  --texto-secundario: #4B5563;
+  --azul-tv: #2563EB;
+  --azul-tv-claro: #3B82F6;
+  --rojo-tv: #EF4444;
+  --amarillo-tv: #FACC15;
+  --amarillo-tv-claro: #FDE047;
+  --sombra-tv: 0 4px 24px rgba(37,99,235,0.10);
+  --sombra-tv-fuerte: 0 8px 32px rgba(37,99,235,0.18);
+  --borde-tv: #2563EB;
 }
 
 /* Fuente global */
@@ -21,8 +55,8 @@ body, html {
   font-family: 'Poppins', Arial, sans-serif;
   box-sizing: border-box;
   margin: 0;
-  background: var(--beige-claro);
-  color: var(--oscuro);
+  background: var(--fondo-principal);
+  color: var(--texto-principal);
   padding: 2vw;
 }
 *, *::before, *::after {
@@ -36,10 +70,12 @@ html { scroll-behavior: smooth; }
    ============================= */
 section, header, footer, .overlay, .programacion-panel, .programacion-detalle, .dias-lista, .programas, .municipios-cards, .municipio-card, .card, .btn, button, .dia-btn, .footer-contacto-panel, .footer-redes-panel, form, input, textarea, .municipio-header, .municipio-comunidades, .footer-info-contacto, .redes-sociales, .footer-contacto-panel form, .footer-redes-panel, .dias-cards, .dia-card {
   border-radius: 18px !important;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
+  background: var(--fondo-secundario);
+  color: var(--texto-principal);
 }
 .card:hover, .municipio-card:hover, .dia-card:hover, .btn:hover, button:hover, .dia-btn:hover, .municipio-card.expandido, .dia-card.expanded {
-  box-shadow: var(--sombra-verde-fuerte);
+  box-shadow: var(--sombra-tv-fuerte);
 }
 
 /* =============================
@@ -60,49 +96,44 @@ header .hero {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--beige-claro);
-  border: 2px solid var(--verde-borde);
-}
-header video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  background: var(--fondo-principal);
+  border: 2px solid var(--borde-tv);
 }
 header .overlay {
   position: relative;
   z-index: 2;
-  background: var(--beige-suave);
-  border: 2px solid var(--verde-borde);
+  background: var(--fondo-secundario);
+  border: 2px solid var(--borde-tv);
   padding: 2rem 1rem;
 }
-.logo {
-  width: 280px;
-  max-width: 90vw;
-  margin-bottom: 1.5rem;
-  transition: width 0.3s, transform 0.4s cubic-bezier(.4,1.5,.6,1);
-  cursor: pointer;
-}
-.logo:hover { transform: scale(1.18); z-index: 10; }
-@media (max-width: 500px) { .logo { width: 120px; } }
 
 /* =============================
-   Botones y estilos interactivos
+   Inputs y formularios
    ============================= */
-.btn, button, .dia-btn {
-  background: var(--verde-principal);
-  color: #fff;
-  border: 2px solid var(--verde-borde);
-  font-weight: 600;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
-  cursor: pointer;
-  padding: 0.7em 2em;
+input, textarea {
+  background: var(--fondo-secundario) !important;
+  color: var(--texto-principal) !important;
+  border: 2px solid var(--borde-tv) !important;
 }
-.btn:hover, button:hover, .dia-btn:hover, .dia-btn.selected, .dia-btn:focus {
-  background: var(--verde-secundario);
-  color: var(--oscuro);
-  border-color: var(--verde-principal);
+::placeholder {
+  color: var(--texto-secundario) !important;
+  opacity: 0.8 !important;
+}
+
+/* =============================
+   Botones
+   ============================= */
+.btn, button, .btn-zonas-toggle {
+  background: var(--azul-tv) !important;
+  color: #fff !important;
+  border: 2px solid var(--borde-tv) !important;
+  box-shadow: var(--sombra-tv);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn:hover, button:hover, .btn-zonas-toggle:hover {
+  background: var(--amarillo-tv) !important;
+  color: var(--azul-tv) !important;
+  box-shadow: var(--sombra-tv-fuerte);
 }
 
 /* =============================
@@ -114,7 +145,7 @@ section {
   margin: 0 auto 2rem auto;
   background: var(--beige-claro);
   color: var(--oscuro);
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   animation: fadeInUp 1s;
 }
 section h2, section h3 {
@@ -147,7 +178,7 @@ section h2, section h3 {
   padding: 1rem 1.2rem;
   background: var(--beige-suave);
   border-radius: 14px;
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   overflow-x: auto;
 }
 @media (max-width: 900px) {
@@ -206,7 +237,7 @@ section h2, section h3 {
   background: var(--beige-suave);
   color: var(--oscuro);
   border-radius: 18px;
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
 }
 .programas .card:hover {
   background: var(--verde-secundario);
@@ -231,7 +262,7 @@ section h2, section h3 {
 footer {
   background: var(--beige-claro);
   color: var(--oscuro);
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   text-align: center;
   padding: 2rem 1rem 1rem 1rem;
   border-radius: 16px 16px 0 0;
@@ -241,7 +272,7 @@ footer h2 { margin-top: 0; font-size: 1.5rem; }
 footer form {
   background: var(--beige-suave);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   padding: 2rem 1.2rem 1.2rem 1.2rem;
   margin-bottom: 1.2rem;
   display: flex;
@@ -261,21 +292,21 @@ footer input, footer textarea {
   max-width: 350px;
   margin-bottom: 0.5rem;
   border-radius: 12px;
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   padding: 0.8em 1em;
   font-size: 1em;
   background: #fff;
   color: var(--oscuro);
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 footer input:focus, footer textarea:focus {
   outline: none;
-  border-color: var(--verde-secundario);
-  box-shadow: var(--sombra-verde-fuerte);
+  border-color: var(--amarillo-tv);
+  box-shadow: var(--sombra-tv-fuerte);
 }
 footer button {
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #fff;
   border: none;
   border-radius: 30px;
@@ -287,7 +318,7 @@ footer button {
   margin-top: 0.5rem;
 }
 footer button:hover {
-  background: var(--verde-secundario);
+  background: var(--azul-tv-claro);
   color: var(--oscuro);
 }
 footer .redes-sociales { margin-top: 1rem; }
@@ -339,10 +370,10 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
   margin-bottom: 2rem;
 }
 .dia-card {
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #23272f;
   border-radius: 14px;
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   transition: box-shadow 0.2s, transform 0.2s, background 0.2s, min-width 0.2s, max-width 0.2s, padding 0.2s;
   cursor: pointer;
   position: relative;
@@ -353,13 +384,13 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
   z-index: 1;
 }
 .dia-card:hover {
-  background: var(--verde-secundario);
-  box-shadow: var(--sombra-verde-fuerte);
+  background: var(--azul-tv-claro);
+  box-shadow: var(--sombra-tv-fuerte);
 }
 .dia-card.expanded {
-  background: var(--verde-secundario);
+  background: var(--azul-tv-claro);
   color: var(--claro);
-  box-shadow: var(--sombra-verde-fuerte);
+  box-shadow: var(--sombra-tv-fuerte);
 }
 
 .dia-header {
@@ -392,9 +423,9 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
 
 /* Card de programación expandida */
 .dia-card.expanded {
-  background: var(--verde-secundario);
+  background: var(--azul-tv-claro);
   color: var(--claro);
-  box-shadow: var(--sombra-verde-fuerte);
+  box-shadow: var(--sombra-tv-fuerte);
   transform: scale(1.08);
   z-index: 2;
   min-width: 220px;
@@ -407,8 +438,8 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
   max-width: 220px !important;
   padding-top: 2.2rem !important;
   padding-bottom: 1.2rem !important;
-  background: var(--verde-principal) !important;
-  box-shadow: var(--sombra-verde) !important;
+  background: var(--azul-tv) !important;
+  box-shadow: var(--sombra-tv) !important;
   transform: none;
   z-index: 1;
 }
@@ -418,16 +449,16 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
    ============================= */
 .municipio-card {
   background: #fff;
-  border: 2px solid var(--verde-borde);
-  box-shadow: var(--sombra-verde);
+  border: 2px solid var(--borde-tv);
+  box-shadow: var(--sombra-tv);
   color: #111;
   transition: box-shadow 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
 }
 .municipio-card:hover, .municipio-card.expandido {
   background: #fff;
   color: var(--verde-limon-oscuro);
-  border: 2.5px solid var(--verde-borde);
-  box-shadow: var(--sombra-verde-fuerte);
+  border: 2.5px solid var(--borde-tv);
+  box-shadow: var(--sombra-tv-fuerte);
 }
 .municipio-header {
   background: var(--verde-limon-oscuro);
@@ -461,8 +492,8 @@ footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration:
   .municipio-card, .municipio-card:hover, .municipio-card.expandido {
     background: #23272f;
     color: #fff;
-    border: 2px solid var(--verde-borde);
-    box-shadow: var(--sombra-verde-fuerte);
+    border: 2px solid var(--borde-tv);
+    box-shadow: var(--sombra-tv-fuerte);
   }
   .municipio-header {
     background: var(--verde-limon-medio);
@@ -492,20 +523,20 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
 }
 .footer-contacto-panel form {
   background: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
   color: #23272f !important;
   box-shadow: none !important;
 }
 .footer-redes-panel {
   background: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
   color: #23272f !important;
   box-shadow: none !important;
 }
 .footer-contacto-panel form input,
 .footer-contacto-panel form textarea {
   background: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
   color: #23272f !important;
   box-shadow: none !important;
 }
@@ -591,8 +622,8 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   z-index: 2;
 }
 .card-destacada {
-  border: 2.5px solid var(--verde-principal) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  border: 2.5px solid var(--azul-tv) !important;
+  box-shadow: var(--sombra-tv-fuerte) !important;
   background: var(--beige-claro) !important;
   margin: 1.2rem !important;
 }
@@ -665,7 +696,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   font-size: 1.08em;
   background: transparent;
   color: var(--oscuro);
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
   box-shadow: none !important;
   border-radius: 10px;
   transition: background 0.2s;
@@ -684,19 +715,19 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   padding: 0;
 }
 .btn-zonas-toggle {
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #fff;
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   border-radius: 10px;
   font-weight: 600;
   font-size: 1em;
   padding: 0.7em 2em;
   cursor: pointer;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   transition: background 0.2s, color 0.2s;
 }
 .btn-zonas-toggle:hover {
-  background: var(--verde-secundario);
+  background: var(--azul-tv-claro);
   color: var(--oscuro);
 }
 
@@ -710,7 +741,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   justify-content: space-between;
   background: linear-gradient(135deg, var(--beige-suave) 60%, var(--beige-claro) 100%);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   padding: 2.2rem 1.5rem 1.5rem 1.5rem;
   margin: 2.5rem auto 0 auto;
   color: var(--oscuro);
@@ -725,7 +756,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--verde-principal);
+  color: var(--azul-tv);
   letter-spacing: 1px;
 }
 .publicidad-desc {
@@ -761,7 +792,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
 }
 .publicidad-promocion {
   flex: 1 1 180px;
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #fff;
   border-radius: 18px;
   font-weight: 700;
@@ -775,8 +806,8 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   max-width: 260px;
   max-height: 120px;
   margin: 0 1.5rem 0 1.5rem;
-  box-shadow: var(--sombra-verde-fuerte);
-  border: 2px solid var(--verde-borde);
+  box-shadow: var(--sombra-tv-fuerte);
+  border: 2px solid var(--borde-tv);
   position: relative;
   top: 0.5rem;
   border-radius: 18px;
@@ -791,7 +822,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
 }
 .publicidad-contacto span,
 .publicidad-redes span {
-  color: var(--verde-principal);
+  color: var(--azul-tv);
   font-weight: 600;
 }
 @media (max-width: 900px) {
@@ -838,7 +869,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   align-items: center;
   background: linear-gradient(135deg, var(--beige-suave) 60%, var(--beige-claro) 100%);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   padding: 2.2rem 1.5rem 1.5rem 1.5rem;
   margin: 2.5rem auto 0 auto;
   color: var(--oscuro);
@@ -849,7 +880,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   margin-bottom: 0.5rem;
 }
 .piramide-promocion {
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #fff;
   border-radius: 18px;
   font-weight: 700;
@@ -863,8 +894,8 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   max-width: 600px;
   width: 90%;
   margin: 0 auto 0.5rem auto;
-  box-shadow: var(--sombra-verde-fuerte);
-  border: 2px solid var(--verde-borde);
+  box-shadow: var(--sombra-tv-fuerte);
+  border: 2px solid var(--borde-tv);
   padding: 1.2em 1em;
 }
 .piramide-imagenes {
@@ -882,7 +913,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   object-fit: cover;
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(20,33,61,0.10);
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   background: var(--beige-claro);
 }
 @media (max-width: 900px) {
@@ -924,7 +955,7 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   padding: 1.2rem;
   background: var(--beige-suave);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
 }
 @media (max-width: 900px) {
   .footer-contacto-panel {
@@ -947,15 +978,6 @@ body > div, section > div {
   margin: 0.7rem auto;
   padding: 0.7rem;
 }
-/* Modo oscuro para footer y divs */
-@media (prefers-color-scheme: dark) {
-  .footer-contacto-panel > div, .footer-contacto-panel > form, div {
-    background: #23272f !important;
-    color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde-fuerte);
-    border: 2px solid var(--verde-borde);
-  }
-}
 
 /* =============================
    Carrusel de Nuestros Programas
@@ -970,7 +992,7 @@ body > div, section > div {
   position: relative;
 }
 .carrusel-btn {
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -981,12 +1003,12 @@ body > div, section > div {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
   transition: background 0.2s, color 0.2s;
   z-index: 2;
 }
 .carrusel-btn:hover {
-  background: var(--verde-secundario);
+  background: var(--azul-tv-claro);
   color: var(--oscuro);
 }
 .carrusel-track {
@@ -1006,8 +1028,8 @@ body > div, section > div {
 .carrusel-card {
   background: var(--beige-suave);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
-  border: 2px solid var(--verde-borde);
+  box-shadow: var(--sombra-tv);
+  border: 2px solid var(--borde-tv);
   min-width: 270px;
   max-width: 320px;
   flex: 0 0 320px;
@@ -1038,7 +1060,7 @@ body > div, section > div {
 }
 .carrusel-card .horario {
   font-size: 0.98rem;
-  color: var(--verde-principal);
+  color: var(--azul-tv);
   font-weight: 600;
 }
 @media (max-width: 900px) {
@@ -1097,8 +1119,8 @@ body > div, section > div {
 .timeline-item {
   background: var(--beige-suave);
   border-radius: 18px;
-  box-shadow: var(--sombra-verde);
-  border: 2px solid var(--verde-borde);
+  box-shadow: var(--sombra-tv);
+  border: 2px solid var(--borde-tv);
   min-width: 140px;
   max-width: 180px;
   flex: 0 0 160px;
@@ -1114,7 +1136,7 @@ body > div, section > div {
 .timeline-hora {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--verde-principal);
+  color: var(--azul-tv);
   margin-bottom: 0.5rem;
 }
 .timeline-programa {
@@ -1127,7 +1149,7 @@ body > div, section > div {
   display: block;
   width: 2.2rem;
   height: 4px;
-  background: var(--verde-principal);
+  background: var(--azul-tv);
   position: absolute;
   right: -2.2rem;
   top: 50%;
@@ -1168,7 +1190,7 @@ body > div, section > div {
 /* ========== OPTIMIZACIÓN DE MARCOS ========== */
 /* Solo dejar bordes en cards, timeline, formulario y bloques principales */
 section, header, footer, .card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
 }
 /* Quitar bordes en divs secundarios y contenedores internos */
 div, .footer-contacto-panel, .footer-contacto-panel > div, .footer-nombre-nortv, .redes_sociales, .zonas-scroll-lista, .carrusel-programas, .timeline-programacion, .timeline-track {
@@ -1179,7 +1201,7 @@ div, .footer-contacto-panel, .footer-contacto-panel > div, .footer-nombre-nortv,
 /* Mantener bordes y fondo solo donde aporta estructura visual */
 .card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
   background: var(--beige-suave);
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
 }
 
 /* Ajuste para modo oscuro */
@@ -1187,40 +1209,40 @@ div, .footer-contacto-panel, .footer-contacto-panel > div, .footer-nombre-nortv,
   .card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
     background: #23272f !important;
     color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde-fuerte);
-    border: 2px solid var(--verde-borde);
+    box-shadow: var(--sombra-tv-fuerte);
+    border: 2px solid var(--borde-tv);
   }
 }
 
 /* Restaurar bordes en divs secundarios de programación y nuestros programas */
 .programacion-panel > div, .timeline-programacion, .timeline-track, .carrusel-programas, .carrusel-track {
-  border: 2px solid var(--verde-borde);
+  border: 2px solid var(--borde-tv);
   border-radius: 18px;
   background: var(--beige-claro);
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
 }
 @media (prefers-color-scheme: dark) {
   .programacion-panel > div, .timeline-programacion, .timeline-track, .carrusel-programas, .carrusel-track {
     background: #23272f !important;
     color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde-fuerte);
-    border: 2px solid var(--verde-borde);
+    box-shadow: var(--sombra-tv-fuerte);
+    border: 2px solid var(--borde-tv);
   }
 }
 
 /* Bordes y fondo para los div internos de programación y programas */
 .timeline-item, .carrusel-card {
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
   border-radius: 18px;
   background: var(--beige-suave);
-  box-shadow: var(--sombra-verde);
+  box-shadow: var(--sombra-tv);
 }
 @media (prefers-color-scheme: dark) {
   .timeline-item, .carrusel-card {
     background: #23272f !important;
     color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde-fuerte);
-    border: 2px solid var(--verde-borde) !important;
+    box-shadow: var(--sombra-tv-fuerte);
+    border: 2px solid var(--borde-tv) !important;
   }
 }
 
@@ -1260,12 +1282,12 @@ body.modo-claro ::placeholder {
 body.modo-oscuro input, body.modo-oscuro textarea {
   background: #23272f !important;
   color: #EEEFE0 !important;
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
 }
 body.modo-claro input, body.modo-claro textarea {
   background: #fff !important;
   color: #23272f !important;
-  border: 2px solid var(--verde-borde) !important;
+  border: 2px solid var(--borde-tv) !important;
 }
 
 /* Mejorar legibilidad de textos en modo oscuro para tablas, celdas y botones */
@@ -1276,17 +1298,71 @@ body.modo-oscuro .btn,
 body.modo-oscuro button {
   color: #EEEFE0 !important;
   background: #23272f !important;
-  border-color: var(--verde-borde) !important;
+  border-color: var(--borde-tv) !important;
 }
 body.modo-oscuro .zonas-excel-table td {
   background: #23272f !important;
-  border-color: var(--verde-borde) !important;
+  border-color: var(--borde-tv) !important;
 }
 body.modo-oscuro .btn-zonas-toggle {
-  background: var(--verde-principal) !important;
+  background: var(--azul-tv) !important;
   color: #23272f !important;
 }
 body.modo-oscuro .btn-zonas-toggle:hover {
-  background: var(--verde-secundario) !important;
+  background: var(--azul-tv-claro) !important;
   color: #EEEFE0 !important;
+}
+
+/* Mejorar legibilidad de listas y checks en modo oscuro y responsividad */
+body.modo-oscuro ul, body.modo-oscuro .publicidad-lista, body.modo-oscuro .publicidad-lista li {
+  color: #EEEFE0 !important;
+  background: #23272f !important;
+}
+body.modo-oscuro .publicidad-lista li::marker, body.modo-oscuro .publicidad-lista li::before {
+  color: var(--azul-tv) !important;
+}
+body.modo-oscuro .publicidad-info, body.modo-oscuro .publicidad-quienes-somos {
+  background: #23272f !important;
+  color: #EEEFE0 !important;
+}
+@media (max-width: 900px) {
+  .publicidad-lista li {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 600px) {
+  .publicidad-lista li {
+    font-size: 1.15em;
+  }
+}
+
+/* =============================
+   Tablas, timeline, carrusel y listas
+   ============================= */
+.zonas-excel-table, .zonas-excel-table td {
+  background: var(--fondo-secundario) !important;
+  color: var(--texto-principal) !important;
+  border: 2px solid var(--borde-tv) !important;
+}
+.timeline-item, .carrusel-card, .programacion-detalle {
+  background: var(--fondo-secundario) !important;
+  color: var(--texto-principal) !important;
+  border: 2px solid var(--borde-tv) !important;
+  box-shadow: var(--sombra-tv);
+}
+.timeline-item .timeline-hora {
+  color: var(--azul-tv) !important;
+}
+.timeline-item .timeline-programa {
+  color: var(--texto-secundario) !important;
+}
+.carrusel-card .programa-titulo {
+  color: var(--rojo-tv) !important;
+}
+ul, .publicidad-lista, .publicidad-lista li {
+  background: var(--fondo-secundario) !important;
+  color: var(--texto-principal) !important;
+}
+.publicidad-lista li::marker, .publicidad-lista li::before {
+  color: var(--amarillo-tv) !important;
 }

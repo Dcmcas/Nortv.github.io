@@ -1,7 +1,9 @@
 /* Importar fuente Poppins de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Paleta institucional NorTv */
+/* =============================
+   Paleta institucional y base
+   ============================= */
 :root {
   --verde-principal: #819A91;
   --verde-secundario: #A7C1A8;
@@ -14,26 +16,42 @@
   --claro: #EEEFE0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* Fuente global */
 body, html {
+  font-family: 'Poppins', Arial, sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  background: var(--beige-claro);
+  color: var(--oscuro);
+  padding: 2vw;
 }
-
-* {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
-  background: var(--beige-claro);
-  color: #23272f;
-  padding: 2vw;
+html { scroll-behavior: smooth; }
+
+/* =============================
+   Bordes redondeados y sombra global
+   ============================= */
+section, header, footer, .overlay, .programacion-panel, .programacion-detalle, .dias-lista, .programas, .municipios-cards, .municipio-card, .card, .btn, button, .dia-btn, .footer-contacto-panel, .footer-redes-panel, form, input, textarea, .municipio-header, .municipio-comunidades, .footer-info-contacto, .redes-sociales, .footer-contacto-panel form, .footer-redes-panel, .dias-cards, .dia-card {
+  border-radius: 18px !important;
+  box-shadow: var(--sombra-verde);
+}
+.card:hover, .municipio-card:hover, .dia-card:hover, .btn:hover, button:hover, .dia-btn:hover, .municipio-card.expandido, .dia-card.expanded {
+  box-shadow: var(--sombra-verde-fuerte);
 }
 
+/* =============================
+   Centrado de texto global en secciones
+   ============================= */
+section, section * {
+  text-align: center !important;
+}
+
+/* =============================
+   Header y logo
+   ============================= */
 header .hero {
   position: relative;
   height: 60vh;
@@ -42,100 +60,254 @@ header .hero {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--beige-claro) !important;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
-  border-radius: 24px !important;
+  background: var(--beige-claro);
+  border: 2px solid var(--verde-borde);
 }
-
 header video {
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   object-fit: cover;
   z-index: 1;
 }
-
 header .overlay {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: var(--oscuro);
-  background: var(--beige-suave) !important;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
-  border-radius: 18px !important;
+  background: var(--beige-suave);
+  border: 2px solid var(--verde-borde);
   padding: 2rem 1rem;
 }
-
 .logo {
   width: 280px;
   max-width: 90vw;
   margin-bottom: 1.5rem;
-  filter: none !important;
-  transition: width 0.3s;
-}
-
-/* Efecto zoom solo al pasar el mouse sobre la imagen del logo */
-.logo {
-  transition: transform 0.4s cubic-bezier(.4,1.5,.6,1);
+  transition: width 0.3s, transform 0.4s cubic-bezier(.4,1.5,.6,1);
   cursor: pointer;
 }
-.logo:hover {
-  transform: scale(1.18);
-  z-index: 10;
-}
+.logo:hover { transform: scale(1.18); z-index: 10; }
+@media (max-width: 500px) { .logo { width: 120px; } }
 
-@media (max-width: 500px) {
-  .logo {
-    width: 120px;
-  }
-}
-
-header h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0 0 1.5rem 0;
-  letter-spacing: 1px;
-}
-
+/* =============================
+   Botones y estilos interactivos
+   ============================= */
 .btn, button, .dia-btn {
-  background: var(--verde-principal) !important;
-  color: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
+  background: var(--verde-principal);
+  color: #fff;
+  border: 2px solid var(--verde-borde);
   font-weight: 600;
   transition: background 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s;
   cursor: pointer;
   padding: 0.7em 2em;
 }
 .btn:hover, button:hover, .dia-btn:hover, .dia-btn.selected, .dia-btn:focus {
-  background: var(--verde-secundario) !important;
-  color: #23272f !important;
-  border-color: var(--verde-principal) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  background: var(--verde-secundario);
+  color: var(--oscuro);
+  border-color: var(--verde-principal);
 }
 
+/* =============================
+   Secciones y títulos
+   ============================= */
 section {
   padding: 3rem 1rem 2rem 1rem;
   max-width: 1100px;
   margin: 0 auto 2rem auto;
-  background: var(--beige-claro) !important;
-  color: #23272f !important;
-  border-radius: 18px;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
+  background: var(--beige-claro);
+  color: var(--oscuro);
+  border: 2px solid var(--verde-borde);
   animation: fadeInUp 1s;
 }
-
-section h2 {
+section h2, section h3 {
   color: var(--oscuro);
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
   font-weight: 700;
+  margin-bottom: 1.2rem;
 }
 
+/* =============================
+   Programación (panel y responsividad)
+   ============================= */
+.programacion-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.dias-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 120px;
+}
+.programacion-detalle {
+  flex: 1 1 300px;
+  min-width: 0;
+  max-width: 600px;
+  padding: 1rem 1.2rem;
+  background: var(--beige-suave);
+  border-radius: 14px;
+  border: 2px solid var(--verde-borde);
+  overflow-x: auto;
+}
+@media (max-width: 900px) {
+  .programacion-panel { flex-direction: column; gap: 1.2rem; align-items: stretch; }
+  .dias-lista { flex-direction: row; justify-content: center; gap: 0.5rem; min-width: 0; margin-bottom: 0.7rem; }
+  .programacion-detalle { padding: 0.7rem 0.5rem; max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .programacion-panel { flex-direction: column; gap: 0.7rem; align-items: stretch; }
+  .dias-lista { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.3rem; min-width: 0; }
+  .programacion-detalle { padding: 0.5rem 0.2rem; max-width: 100vw; font-size: 0.98em; }
+  .dia-btn { font-size: 0.98em; padding: 0.5em 1em; min-width: 70px; }
+}
+
+/* =============================
+   Cards de programas
+   ============================= */
+.programas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .programas { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .programas .card { padding: 0.7rem 0.5rem; }
+}
+@media (max-width: 600px) {
+  .programas { grid-template-columns: 1fr; gap: 0.7rem; }
+  .programas .card { padding: 0.5rem 0.2rem; min-width: 0; }
+}
+
+/* Centrado y responsividad de imágenes en cards de programas */
+.programas .card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.7rem;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+}
+@media (max-width: 900px) {
+  .programas .card img {
+    max-width: 120px;
+  }
+}
+@media (max-width: 600px) {
+  .programas .card img {
+    max-width: 90vw;
+    width: 100%;
+    height: auto;
+  }
+}
+.programas .card {
+  background: var(--beige-suave);
+  color: var(--oscuro);
+  border-radius: 18px;
+  border: 2px solid var(--verde-borde);
+}
+.programas .card:hover {
+  background: var(--verde-secundario);
+  color: var(--oscuro);
+}
+.programas .card h3 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 1.1rem;
+}
+.programas .card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.programas .card .horario {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* =============================
+   Footer y formulario de contacto
+   ============================= */
+footer {
+  background: var(--beige-claro);
+  color: var(--oscuro);
+  box-shadow: var(--sombra-verde);
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  border-radius: 16px 16px 0 0;
+  margin-top: 2rem;
+}
+footer h2 { margin-top: 0; font-size: 1.5rem; }
+footer form {
+  background: var(--beige-suave);
+  border-radius: 18px;
+  box-shadow: var(--sombra-verde);
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+footer .form-desc {
+  font-size: 1.05rem;
+  color: var(--oscuro);
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+}
+footer input, footer textarea {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--verde-borde);
+  padding: 0.8em 1em;
+  font-size: 1em;
+  background: #fff;
+  color: var(--oscuro);
+  box-shadow: var(--sombra-verde);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+footer input:focus, footer textarea:focus {
+  outline: none;
+  border-color: var(--verde-secundario);
+  box-shadow: var(--sombra-verde-fuerte);
+}
+footer button {
+  background: var(--verde-principal);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.7rem 2.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+footer button:hover {
+  background: var(--verde-secundario);
+  color: var(--oscuro);
+}
+footer .redes-sociales { margin-top: 1rem; }
+footer .redes-sociales a { margin: 0 0.7rem; font-size: 1.2rem; text-decoration: none; transition: color 0.2s; }
+.icono-red img { filter: grayscale(0.1) brightness(1.1); }
+.icono-red:hover img { filter: grayscale(0) brightness(1.2) drop-shadow(0 2px 8px rgba(186, 255, 57, 0.3)); }
+
+/* =============================
+   Animaciones
+   ============================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================
+   Ajustes específicos por sección
+   ============================= */
+
+/* Sección ¿Quiénes somos? */
 #quienes-somos img {
   width: 100%;
   max-width: 400px;
@@ -147,6 +319,17 @@ section h2 {
   margin-right: auto;
 }
 
+/* Separación visual entre header y sección 'quienes-somos' */
+#quienes-somos {
+  margin-top: 3.5rem;
+  box-shadow: 0 8px 32px rgba(129,154,145,0.10);
+}
+@media (max-width: 600px) {
+  #quienes-somos {
+    margin-top: 2rem;
+  }
+}
+
 /* Cards de días de la semana en programación - solo la expandida crece */
 .dias-cards {
   display: flex;
@@ -156,11 +339,10 @@ section h2 {
   margin-bottom: 2rem;
 }
 .dia-card {
-  background: var(--verde-principal) !important;
-  color: #23272f !important;
+  background: var(--verde-principal);
+  color: #23272f;
   border-radius: 14px;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
+  border: 2px solid var(--verde-borde);
   transition: box-shadow 0.2s, transform 0.2s, background 0.2s, min-width 0.2s, max-width 0.2s, padding 0.2s;
   cursor: pointer;
   position: relative;
@@ -171,13 +353,13 @@ section h2 {
   z-index: 1;
 }
 .dia-card:hover {
-  background: var(--verde-secundario) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  background: var(--verde-secundario);
+  box-shadow: var(--sombra-verde-fuerte);
 }
 .dia-card.expanded {
-  background: var(--verde-secundario) !important;
+  background: var(--verde-secundario);
   color: var(--claro);
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  box-shadow: var(--sombra-verde-fuerte);
 }
 
 .dia-header {
@@ -210,9 +392,9 @@ section h2 {
 
 /* Card de programación expandida */
 .dia-card.expanded {
-  background: var(--verde-secundario) !important;
+  background: var(--verde-secundario);
   color: var(--claro);
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  box-shadow: var(--sombra-verde-fuerte);
   transform: scale(1.08);
   z-index: 2;
   min-width: 220px;
@@ -231,716 +413,30 @@ section h2 {
   z-index: 1;
 }
 
-.programas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
-}
-@media (max-width: 900px) {
-  .programas {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-  }
-  .programas .card {
-    padding: 0.7rem 0.5rem;
-  }
-  .programas .card img {
-    max-width: 120px;
-  }
-}
-@media (max-width: 600px) {
-  .programas {
-    grid-template-columns: 1fr;
-    gap: 0.7rem;
-  }
-  .programas .card {
-    padding: 0.5rem 0.2rem;
-    min-width: 0;
-  }
-  .programas .card img {
-    max-width: 90vw;
-    width: 100%;
-    height: auto;
-  }
-}
-
-.programas .card {
-  background: var(--beige-suave) !important;
-  color: #23272f !important;
-  border-radius: 18px;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
-}
-.programas .card:hover {
-  background: var(--verde-secundario) !important;
-  color: #23272f !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
-}
-
-.programas .card img {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 8px;
-  margin-bottom: 0.7rem;
-}
-.programas .card h3 {
-  margin: 0.5rem 0 0.3rem 0;
-  font-size: 1.1rem;
-  color: var(--gris-oscuro);
-}
-.programas .card p {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-.programas .card .horario {
-  font-size: 0.9rem;
-  color: var(--gris-oscuro);
-  font-weight: 600;
-}
-
-.municipios-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
+/* =============================
+   Ajustes para cards de municipios en cobertura
+   ============================= */
 .municipio-card {
-  flex: 1 1 220px;
-  max-width: 260px;
-  min-width: 180px;
-  min-height: 110px;
   background: #fff;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  border-radius: 18px;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
-  transition: box-shadow 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-}
-.municipio-card:hover, .municipio-card.expandido {
-  background: #fff !important;
-  color: var(--verde-limon-oscuro) !important;
-  border: 2.5px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
-}
-.municipio-card.expandido {
-  max-width: 320px !important;
-  min-width: 220px !important;
-  max-height: 500px !important;
-  height: auto !important;
-  overflow: visible;
-}
-.municipio-header {
-  padding: 1rem 1.2rem;
-  font-weight: 600;
-  color: #fff !important;
-  background: var(--verde-principal) !important;
-  border-radius: 12px 12px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  user-select: none;
-  white-space: normal;
-  word-break: break-word;
-  text-align: center;
-}
-.arrow {
-  font-size: 1.2rem;
-  transition: transform 0.3s;
-}
-.municipio-card.expandido .arrow {
-  transform: rotate(90deg);
-}
-.municipio-comunidades {
-  max-height: 0;
-  opacity: 0;
-  padding: 0 0;
-  transition: max-height 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s, padding 0.3s;
-  overflow: hidden;
-  background: var(--blanco);
-  white-space: normal;
-  word-break: break-word;
-  text-align: center;
-}
-.municipio-card.expandido .municipio-comunidades {
-  max-height: 300px;
-  opacity: 1;
-  padding: 0.7rem 1.2rem 1rem 1.2rem;
-  background: #fff !important;
-  color: #111 !important;
-}
-.municipio-comunidades ul {
-  margin: 0;
-  padding-left: 1.2rem;
-  color: #333;
-  font-size: 0.97rem;
-}
-
-/* Ajuste: logo y colores de texto en cards de cobertura */
-.logo {
-  filter: none !important;
-}
-.municipio-card, .municipio-card .municipio-header, .municipio-card .municipio-comunidades, .municipio-card ul, .municipio-card li {
-  color: #23272f !important;
-}
-@media (prefers-color-scheme: dark) {
-  .municipio-card, .municipio-card .municipio-header, .municipio-card .municipio-comunidades, .municipio-card ul, .municipio-card li {
-    color: #EEEFE0 !important;
-  }
-}
-
-#cobertura img {
-  width: 100%;
-  max-width: 500px;
-  display: block;
-  margin: 1.5rem auto 1rem auto;
-  border-radius: 12px;
-  box-shadow: var(--naranja-shadow-card);
-}
-
-footer {
-  background: var(--beige-claro) !important;
-  color: var(--oscuro);
-  box-shadow: var(--sombra-verde) !important;
-  text-align: center;
-  padding: 2rem 1rem 1rem 1rem;
-  border-radius: 16px 16px 0 0;
-  margin-top: 2rem;
-}
-footer h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  color: var(--gris-oscuro);
-}
-footer form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  max-width: 400px;
-  margin: 0 auto 1.2rem auto;
-}
-footer input, footer textarea,
-.footer-contacto-panel input, .footer-contacto-panel textarea {
-  background: #fff !important;
-  color: #23272f !important;
-  border-radius: 14px;
-  border: 2px solid var(--verde-borde) !important;
-  padding: 0.8em 1em;
-  margin-bottom: 1.2em;
-  width: 100%;
-  font-size: 1em;
-  box-shadow: var(--sombra-verde) !important;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-footer textarea, .footer-contacto-panel textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-footer input:focus, footer textarea:focus,
-.footer-contacto-panel input:focus, .footer-contacto-panel textarea:focus {
-  outline: none;
-  border-color: var(--verde-secundario) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
-}
-
-::placeholder {
-  color: #111;
-  opacity: 0.7;
-}
-
-footer button {
-  background: var(--verde-principal) !important;
-  color: #fff !important;
-  box-shadow: var(--sombra-verde) !important;
-  border: none;
-  border-radius: 30px;
-  padding: 0.7rem 0;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
-}
-footer button:hover {
-  background: var(--verde-secundario) !important;
-  color: #23272f !important;
-}
-footer .redes-sociales {
-  margin-top: 1rem;
-}
-footer .redes-sociales a {
-  color: var(--naranja-oscuro);
-  margin: 0 0.7rem;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-footer .redes-sociales a:hover {
-  color: var(--naranja);
-}
-.icono-red img {
-  filter: grayscale(0.1) brightness(1.1);
-}
-.icono-red:hover img {
-  filter: grayscale(0) brightness(1.2) drop-shadow(0 2px 8px rgba(186, 255, 57, 0.3));
-}
-
-/* Animaciones suaves */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Layout de programación: lista de días a la izquierda, detalle a la derecha */
-.programacion-panel {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: flex-start;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-.dias-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  min-width: 120px;
-}
-.programacion-detalle {
-  flex: 1 1 300px;
-  min-width: 0;
-  max-width: 600px;
-  padding: 1rem 1.2rem;
-  background: var(--beige-suave);
-  border-radius: 14px;
-  box-shadow: var(--sombra-verde);
   border: 2px solid var(--verde-borde);
-  overflow-x: auto;
-}
-@media (max-width: 900px) {
-  .programacion-panel {
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: stretch;
-  }
-  .dias-lista {
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.5rem;
-    min-width: 0;
-    margin-bottom: 0.7rem;
-  }
-  .programacion-detalle {
-    padding: 0.7rem 0.5rem;
-    max-width: 100%;
-  }
-}
-@media (max-width: 600px) {
-  .programacion-panel {
-    flex-direction: column;
-    gap: 0.7rem;
-    align-items: stretch;
-  }
-  .dias-lista {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.3rem;
-    min-width: 0;
-  }
-  .programacion-detalle {
-    padding: 0.5rem 0.2rem;
-    max-width: 100vw;
-    font-size: 0.98em;
-  }
-  .dia-btn {
-    font-size: 0.98em;
-    padding: 0.5em 1em;
-    min-width: 70px;
-  }
-}
-
-/* Responsive */
-@media (max-width: 800px) {
-  section {
-    padding: 2rem 0.5rem 1.5rem 0.5rem;
-  }
-  header .hero {
-    height: 40vh;
-    min-height: 220px;
-  }
-  .municipios-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .municipio-card {
-    min-width: 90vw !important;
-    max-width: 100vw !important;
-    width: 100% !important;
-  }
-}
-/* Mejoras responsivas para la sección de programación */
-@media (max-width: 900px) {
-  .programacion-panel {
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: stretch;
-  }
-  .dias-lista {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    min-width: 0;
-    max-width: 100vw;
-    justify-content: flex-start;
-    overflow-x: visible;
-    padding-bottom: 0.5rem;
-  }
-  .dia-btn {
-    min-width: 80px;
-    max-width: 100px;
-    width: 100%;
-    padding: 0.7rem 0.5rem;
-    font-size: 1rem;
-    text-align: center;
-    flex: 1 0 80px;
-    white-space: normal;
-    word-break: break-word;
-  }
-  .programacion-detalle {
-    padding: 1.2rem 0.7rem;
-    min-width: 0;
-  }
-}
-@media (max-width: 600px) {
-  .programacion-panel {
-    gap: 0.7rem;
-  }
-  .dias-lista {
-    gap: 0.3rem;
-    padding-bottom: 0.2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .dia-btn {
-    min-width: 60px;
-    max-width: 90px;
-    font-size: 0.95rem;
-    padding: 0.6rem 0.3rem;
-    margin-bottom: 0.2rem;
-  }
-  .programacion-detalle {
-    padding: 0.7rem 0.2rem;
-    font-size: 0.98rem;
-  }
-  .programacion-detalle h3 {
-    font-size: 1.1rem;
-  }
-  .programacion-detalle ul {
-    font-size: 0.98rem;
-  }
-}
-
-@media (min-width: 900px) {
-  body {
-    padding-left: 15vw;
-    padding-right: 15vw;
-    box-sizing: border-box;
-  }
-  section, header, footer {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-@media (max-width: 899px) {
-  body {
-    padding-left: 2vw;
-    padding-right: 2vw;
-  }
-}
-
-/* Separadores y detalles */
-hr {
-  border: none;
-  border-top: 1px solid var(--verde-limon-medio);
-  margin: 2em 0;
-}
-
-/* Nuevos estilos para el footer de contacto */
-.footer-contacto-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  align-items: stretch;
-  justify-content: center;
-  background: none;
-}
-@media (min-width: 900px) {
-  .footer-contacto-panel {
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    gap: 0;
-    background: none;
-    padding: 0;
-  }
-  .footer-contacto-panel form, .footer-redes-panel {
-    width: 50%;
-    min-width: 0;
-    max-width: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    background: var(--verde-limon-medio);
-    box-shadow: var(--sombra-verde);
-    border-radius: 18px;
-  }
-}
-.footer-contacto-panel form {
-  background: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
-  color: #23272f !important;
-  box-shadow: var(--sombra-verde) !important;
-  padding: 2.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.1rem;
-  align-items: center;
-  margin: 0 auto;
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 18px;
-}
-.footer-contacto-panel input,
-.footer-contacto-panel textarea {
-  width: 100%;
-  margin-bottom: 0.2rem;
-  box-sizing: border-box;
-  border-radius: 12px;
-}
-.footer-contacto-panel button[type="submit"] {
-  width: 100%;
-  max-width: 220px;
-  align-self: center;
-}
-.footer-redes-panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  text-align: center;
-  background: var(--verde-limon-claro);
-  box-shadow: var(--sombra-verde) !important;
-  border-radius: 18px;
-}
-.footer-redes-panel .redes-grandes {
-  display: flex;
-  gap: 1.5rem;
-  margin: 1.2rem 0 1.2rem 0;
-  justify-content: center;
-}
-.footer-info-contacto {
-  text-align: center;
-}
-@media (max-width: 899px) {
-  .footer-contacto-panel {
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-  .footer-contacto-panel form, .footer-redes-panel {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  .footer-contacto-panel form {
-    padding: 1.2rem 0.7rem 1rem 0.7rem;
-  }
-}
-
-/* Bordes redondeados globales para todos los elementos visuales principales */
-section, header, footer, .overlay, .programacion-panel, .programacion-detalle, .dias-lista, .programas, .municipios-cards, .municipio-card, .card, .btn, button, .dia-btn, .footer-contacto-panel, .footer-redes-panel, form, input, textarea, .municipio-header, .municipio-comunidades, .footer-info-contacto, .redes-sociales, .footer-contacto-panel form, .footer-redes-panel, .dias-cards, .dia-card {
-  border-radius: 18px !important;
-}
-
-/* Sombra y elevación para cards y botones */
-.card, .municipio-card, .dia-card, .btn, button, .dia-btn, .footer-contacto-panel form, .footer-redes-panel, .programacion-detalle {
-  box-shadow: 0 4px 24px rgba(20,33,61,0.13), 0 1.5px 6px rgba(186,255,57,0.10);
-  transition: box-shadow 0.2s, background 0.2s, border-radius 0.2s;
-}
-.card:hover, .municipio-card:hover, .dia-card:hover, .btn:hover, button:hover, .dia-btn:hover, .municipio-card.expandido, .dia-card.expanded {
-  box-shadow: 0 8px 32px rgba(20,33,61,0.18), 0 2.5px 12px rgba(186,255,57,0.18);
-}
-
-/* Bordes redondeados para imágenes dentro de cards y secciones */
-.card img, section img, .programas .card img, #quienes-somos img {
-  border-radius: 14px !important;
-}
-
-/* Bordes redondeados para campos de formulario y listas */
-input, textarea, select, .municipio-comunidades ul, .programacion-detalle ul, .footer-info-contacto, .redes_sociales {
-  border-radius: 12px !important;
-}
-
-/* Bordes redondeados para paneles internos */
-.footer-contacto-panel, .footer-redes-panel, .dias-lista, .programacion-panel {
-  border-radius: 18px !important;
-}
-
-/* Sombra para paneles principales */
-section, header, footer, .overlay, .footer-contacto-panel, .footer-redes-panel {
-  box-shadow: 0 4px 24px rgba(20,33,61,0.10), 0 1.5px 6px rgba(186,255,57,0.08);
-}
-
-/* Soporte para modo oscuro y claro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --verde-principal: #A7C1A8;
-    --verde-secundario: #819A91;
-    --beige-suave: #819A91;
-    --beige-claro: #23272f;
-    --sombra-verde: 0 4px 24px rgba(167,193,168,0.18);
-    --sombra-verde-fuerte: 0 8px 32px rgba(167,193,168,0.28);
-    --verde-borde: #A7C1A8;
-    --oscuro: #EEEFE0;
-    --claro: #23272f;
-  }
-  body, header .hero, section, footer, .overlay, .programacion-detalle, .footer-contacto-panel form, .footer-redes-panel, .municipio-card, .card, .dia-card {
-    background: var(--beige-claro) !important;
-    color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde) !important;
-    border: 2px solid var(--verde-borde) !important;
-  }
-  .btn, button, .dia-btn {
-    background: var(--verde-principal) !important;
-    color: #23272f !important;
-    border: 2px solid var(--verde-borde) !important;
-    box-shadow: var(--sombra-verde) !important;
-  }
-  .btn:hover, button:hover, .dia-btn:hover, .dia-btn.selected, .dia-btn:focus {
-    background: var(--verde-secundario) !important;
-    color: #EEEFE0 !important;
-    border-color: var(--verde-principal) !important;
-    box-shadow: var(--sombra-verde-fuerte) !important;
-  }
-  .programas .card, .municipio-card {
-    background: var(--beige-suave) !important;
-    color: #EEEFE0 !important;
-    border: 2px solid var(--verde-borde) !important;
-    box-shadow: var(--sombra-verde) !important;
-  }
-  .programas .card:hover, .municipio-card:hover, .municipio-card.expandido {
-    background: var(--verde-secundario) !important;
-    color: #EEEFE0 !important;
-    box-shadow: var(--sombra-verde-fuerte) !important;
-  }
-  .municipio-header {
-    background: var(--verde-principal) !important;
-    color: #23272f !important;
-  }
-  .municipio-card.expandido .municipio-header {
-    background: var(--verde-secundario) !important;
-    color: #EEEFE0 !important;
-  }
-  .footer-contacto-panel form, .footer-redes-panel {
-    background: #23272f !important;
-    color: #EEEFE0 !important;
-  }
-  .footer-contacto-panel form input,
-  .footer-contacto-panel form textarea {
-    background: #23272f !important;
-    color: #EEEFE0 !important;
-    border: 2px solid var(--verde-borde) !important;
-  }
-  .footer-contacto-panel form input::placeholder,
-  .footer-contacto-panel form textarea::placeholder {
-    color: #EEEFE0 !important;
-    opacity: 0.5 !important;
-  }
-}
-
-/* Placeholders siempre blancos en los formularios de contacto */
-footer input::placeholder,
-footer textarea::placeholder,
-.footer-contacto-panel input::placeholder,
-.footer-contacto-panel textarea::placeholder {
-  color: #fff !important;
-  opacity: 1;
-}
-@media (prefers-color-scheme: dark) {
-  footer input::placeholder,
-  footer textarea::placeholder,
-  .footer-contacto-panel input::placeholder,
-  .footer-contacto-panel textarea::placeholder {
-    color: #fff !important;
-    opacity: 1;
-  }
-}
-
-/* Placeholder del formulario: color negro/blanco según modo, pero con más transparencia */
-.footer-contacto-panel form input::placeholder,
-.footer-contacto-panel form textarea::placeholder {
-  color: #111 !important;
-  opacity: 0.5 !important;
-}
-@media (prefers-color-scheme: dark) {
-  .footer-contacto-panel form input::placeholder,
-  .footer-contacto-panel form textarea::placeholder {
-    color: #fff !important;
-    opacity: 0.5 !important;
-  }
-}
-
-/* Ocultar placeholder al escribir en los campos del formulario de contacto */
-.footer-contacto-panel form input:focus::placeholder,
-.footer-contacto-panel form textarea:focus::placeholder {
-  opacity: 0 !important;
-  transition: opacity 0.2s;
-}
-
-/* Ajustes para cards de municipios en cobertura */
-.municipio-card {
-  background: #fff !important;
-  border: 2px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde) !important;
-  color: #111 !important;
+  box-shadow: var(--sombra-verde);
+  color: #111;
   transition: box-shadow 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
 }
 .municipio-card:hover, .municipio-card.expandido {
-  background: #fff !important;
-  color: var(--verde-limon-oscuro) !important;
-  border: 2.5px solid var(--verde-borde) !important;
-  box-shadow: var(--sombra-verde-fuerte) !important;
+  background: #fff;
+  color: var(--verde-limon-oscuro);
+  border: 2.5px solid var(--verde-borde);
+  box-shadow: var(--sombra-verde-fuerte);
 }
 .municipio-header {
-  background: var(--verde-limon-oscuro) !important;
-  color: #fff !important;
+  background: var(--verde-limon-oscuro);
+  color: #fff;
   transition: background 0.3s, color 0.3s;
 }
 .municipio-card.expandido .municipio-header {
   background: var(--verde-limon) !important;
-  color: var(--verde-limon-oscuro) !important;
+  color: #23272f !important;
 }
 .arrow {
   transition: transform 0.4s cubic-bezier(.4,2,.6,1), color 0.3s;
@@ -951,30 +447,30 @@ footer textarea::placeholder,
   color: var(--verde-limon-oscuro);
 }
 .municipio-comunidades {
-  background: #fff !important;
-  color: #111 !important;
+  background: #fff;
+  color: #111;
   border-radius: 0 0 18px 18px !important;
   box-shadow: none !important;
   transition: max-width 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s, padding 0.3s, background 0.3s;
 }
 .municipio-card.expandido .municipio-comunidades {
-  background: #fff !important;
-  color: #111 !important;
+  background: #fff;
+  color: #111;
 }
 @media (prefers-color-scheme: dark) {
   .municipio-card, .municipio-card:hover, .municipio-card.expandido {
-    background: #23272f !important;
-    color: #fff !important;
-    border: 2px solid var(--verde-borde) !important;
-    box-shadow: var(--sombra-verde-fuerte) !important;
+    background: #23272f;
+    color: #fff;
+    border: 2px solid var(--verde-borde);
+    box-shadow: var(--sombra-verde-fuerte);
   }
   .municipio-header {
-    background: var(--verde-limon-medio) !important;
-    color: #23272f !important;
+    background: var(--verde-limon-medio);
+    color: #23272f;
   }
   .municipio-card.expandido .municipio-header {
-    background: var(--verde-limon-fuerte) !important;
-    color: #23272f !important;
+    background: var(--verde-limon-fuerte);
+    color: #23272f;
   }
   .arrow {
     color: #23272f;
@@ -983,8 +479,8 @@ footer textarea::placeholder,
     color: var(--verde-limon-fuerte);
   }
   .municipio-comunidades, .municipio-card.expandido .municipio-comunidades {
-    background: #23272f !important;
-    color: #fff !important;
+    background: #23272f;
+    color: #fff;
   }
 }
 
@@ -1041,7 +537,30 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   }
 }
 
-/* Slider de imágenes para cards destacadas */
+/* Placeholder del formulario: color negro/blanco según modo, pero con más transparencia */
+.footer-contacto-panel form input::placeholder,
+.footer-contacto-panel form textarea::placeholder {
+  color: #111 !important;
+  opacity: 0.5 !important;
+}
+@media (prefers-color-scheme: dark) {
+  .footer-contacto-panel form input::placeholder,
+  .footer-contacto-panel form textarea::placeholder {
+    color: #fff !important;
+    opacity: 0.5 !important;
+  }
+}
+
+/* Ocultar placeholder al escribir en los campos del formulario de contacto */
+.footer-contacto-panel form input:focus::placeholder,
+.footer-contacto-panel form textarea:focus::placeholder {
+  opacity: 0 !important;
+  transition: opacity 0.2s;
+}
+
+/* =============================
+   Slider de imágenes para cards destacadas
+   ============================= */
 .card-destacada .slider-imagenes {
   display: flex;
   align-items: center;
@@ -1181,6 +700,9 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   color: var(--oscuro);
 }
 
+/* =============================
+   Sección de publicidad: estilos generales
+   ============================= */
 .publicidad-quienes-somos {
   display: flex;
   flex-wrap: wrap;
@@ -1307,7 +829,9 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
   }
 }
 
-/* Estilos para la pirámide de publicidad: logo arriba, promoción ancha y centrada, imágenes en pirámide debajo, todo centrado y responsivo */
+/* =============================
+   Estilos para la pirámide de publicidad: logo arriba, promoción ancha y centrada, imágenes en pirámide debajo, todo centrado y responsivo
+   ============================= */
 .piramide-publicidad {
   display: flex;
   flex-direction: column;
@@ -1378,4 +902,391 @@ footer, .footer-contacto-panel, .footer-info-contacto, .redes_sociales, .footer-
     width: 80px;
     height: 80px;
   }
+}
+
+/* =============================
+   Footer dividido en dos columnas y separación en divs
+   ============================= */
+.footer-contacto-panel {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: stretch;
+  justify-content: center;
+  background: none;
+  margin: 2rem 0 0 0;
+}
+.footer-contacto-panel > div, .footer-contacto-panel > form {
+  flex: 1 1 0;
+  min-width: 220px;
+  max-width: 400px;
+  margin: 1.2rem;
+  padding: 1.2rem;
+  background: var(--beige-suave);
+  border-radius: 18px;
+  box-shadow: var(--sombra-verde);
+}
+@media (max-width: 900px) {
+  .footer-contacto-panel {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .footer-contacto-panel > div, .footer-contacto-panel > form {
+    margin: 1rem auto;
+    max-width: 98vw;
+  }
+}
+/* Separación para todos los divs principales */
+div {
+  margin: 1.2rem;
+  padding: 1.2rem;
+  box-sizing: border-box;
+}
+/* Ajuste para evitar doble padding/margen en el body y secciones */
+body > div, section > div {
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+}
+/* Modo oscuro para footer y divs */
+@media (prefers-color-scheme: dark) {
+  .footer-contacto-panel > div, .footer-contacto-panel > form, div {
+    background: #23272f !important;
+    color: #EEEFE0 !important;
+    box-shadow: var(--sombra-verde-fuerte);
+    border: 2px solid var(--verde-borde);
+  }
+}
+
+/* =============================
+   Carrusel de Nuestros Programas
+   ============================= */
+.carrusel-programas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin: 2rem auto 2rem auto;
+  position: relative;
+}
+.carrusel-btn {
+  background: var(--verde-principal);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--sombra-verde);
+  transition: background 0.2s, color 0.2s;
+  z-index: 2;
+}
+.carrusel-btn:hover {
+  background: var(--verde-secundario);
+  color: var(--oscuro);
+}
+.carrusel-track {
+  display: flex;
+  gap: 2.2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1.2rem 0;
+  width: 100%;
+  max-width: 900px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+.carrusel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari y Opera */
+}
+.carrusel-card {
+  background: var(--beige-suave);
+  border-radius: 18px;
+  box-shadow: var(--sombra-verde);
+  border: 2px solid var(--verde-borde);
+  min-width: 270px;
+  max-width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.carrusel-card img {
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto 1rem auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(20,33,61,0.10);
+}
+.carrusel-card h3 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 1.2rem;
+  color: var(--oscuro);
+}
+.carrusel-card p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.7rem;
+}
+.carrusel-card .horario {
+  font-size: 0.98rem;
+  color: var(--verde-principal);
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  .carrusel-track {
+    max-width: 98vw;
+    gap: 1.2rem;
+  }
+  .carrusel-card {
+    min-width: 220px;
+    max-width: 260px;
+    flex: 0 0 260px;
+    padding: 1rem 0.5rem;
+  }
+  .carrusel-card img {
+    max-width: 120px;
+  }
+}
+@media (max-width: 600px) {
+  .carrusel-programas {
+    gap: 0.5rem;
+  }
+  .carrusel-track {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .carrusel-card {
+    min-width: 90vw;
+    max-width: 95vw;
+    flex: 0 0 95vw;
+    padding: 0.7rem 0.2rem;
+  }
+  .carrusel-card img {
+    max-width: 90vw;
+  }
+}
+
+/* =============================
+   Timeline de Programación
+   ============================= */
+.timeline-programacion {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.timeline-track {
+  display: flex;
+  gap: 2.2rem;
+  align-items: flex-start;
+  min-width: 900px;
+  margin: 0 auto;
+  animation: timeline-scroll 40s linear infinite;
+  will-change: transform;
+}
+.timeline-item {
+  background: var(--beige-suave);
+  border-radius: 18px;
+  box-shadow: var(--sombra-verde);
+  border: 2px solid var(--verde-borde);
+  min-width: 140px;
+  max-width: 180px;
+  flex: 0 0 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.2rem 0.7rem;
+  text-align: center;
+  transition: box-shadow 0.2s, background 0.2s;
+  position: relative;
+}
+.timeline-hora {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--verde-principal);
+  margin-bottom: 0.5rem;
+}
+.timeline-programa {
+  font-size: 1rem;
+  color: var(--oscuro);
+  font-weight: 500;
+}
+.timeline-item::after {
+  content: '';
+  display: block;
+  width: 2.2rem;
+  height: 4px;
+  background: var(--verde-principal);
+  position: absolute;
+  right: -2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+.timeline-item:last-child::after {
+  display: none;
+}
+@media (max-width: 900px) {
+  .timeline-track {
+    min-width: 700px;
+    gap: 1.2rem;
+  }
+  .timeline-item {
+    min-width: 110px;
+    max-width: 140px;
+    flex: 0 0 120px;
+    padding: 0.7rem 0.3rem;
+  }
+}
+@media (max-width: 600px) {
+  .timeline-programacion {
+    padding: 0.7rem 0;
+  }
+  .timeline-track {
+    min-width: 500px;
+    gap: 0.5rem;
+  }
+  .timeline-item {
+    min-width: 80vw;
+    max-width: 90vw;
+    flex: 0 0 90vw;
+    padding: 0.5rem 0.1rem;
+  }
+}
+
+/* ========== OPTIMIZACIÓN DE MARCOS ========== */
+/* Solo dejar bordes en cards, timeline, formulario y bloques principales */
+section, header, footer, .card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
+  border: 2px solid var(--verde-borde);
+}
+/* Quitar bordes en divs secundarios y contenedores internos */
+div, .footer-contacto-panel, .footer-contacto-panel > div, .footer-nombre-nortv, .redes_sociales, .zonas-scroll-lista, .carrusel-programas, .timeline-programacion, .timeline-track {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+/* Mantener bordes y fondo solo donde aporta estructura visual */
+.card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
+  background: var(--beige-suave);
+  box-shadow: var(--sombra-verde);
+}
+
+/* Ajuste para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .card, .municipio-card, .carrusel-card, .timeline-item, .programacion-detalle, .footer-contacto-panel > form, .footer-redes-panel {
+    background: #23272f !important;
+    color: #EEEFE0 !important;
+    box-shadow: var(--sombra-verde-fuerte);
+    border: 2px solid var(--verde-borde);
+  }
+}
+
+/* Restaurar bordes en divs secundarios de programación y nuestros programas */
+.programacion-panel > div, .timeline-programacion, .timeline-track, .carrusel-programas, .carrusel-track {
+  border: 2px solid var(--verde-borde);
+  border-radius: 18px;
+  background: var(--beige-claro);
+  box-shadow: var(--sombra-verde);
+}
+@media (prefers-color-scheme: dark) {
+  .programacion-panel > div, .timeline-programacion, .timeline-track, .carrusel-programas, .carrusel-track {
+    background: #23272f !important;
+    color: #EEEFE0 !important;
+    box-shadow: var(--sombra-verde-fuerte);
+    border: 2px solid var(--verde-borde);
+  }
+}
+
+/* Bordes y fondo para los div internos de programación y programas */
+.timeline-item, .carrusel-card {
+  border: 2px solid var(--verde-borde) !important;
+  border-radius: 18px;
+  background: var(--beige-suave);
+  box-shadow: var(--sombra-verde);
+}
+@media (prefers-color-scheme: dark) {
+  .timeline-item, .carrusel-card {
+    background: #23272f !important;
+    color: #EEEFE0 !important;
+    box-shadow: var(--sombra-verde-fuerte);
+    border: 2px solid var(--verde-borde) !important;
+  }
+}
+
+/* Animación de desplazamiento automático para timeline-track */
+.timeline-programacion {
+  position: relative;
+}
+.timeline-track {
+  animation: timeline-scroll 40s linear infinite;
+  will-change: transform;
+}
+@keyframes timeline-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Pausar animación al pasar el mouse */
+.timeline-programacion:hover .timeline-track {
+  animation-play-state: paused;
+}
+
+/* Legibilidad máxima para textos y placeholders en ambos modos */
+body.modo-oscuro, body.modo-oscuro * {
+  color: #EEEFE0 !important;
+}
+body.modo-claro, body.modo-claro * {
+  color: #23272f !important;
+}
+body.modo-oscuro ::placeholder {
+  color: #EEEFE0 !important;
+  opacity: 1 !important;
+}
+body.modo-claro ::placeholder {
+  color: #23272f !important;
+  opacity: 0.7 !important;
+}
+/* Ajuste para inputs y textarea en ambos modos */
+body.modo-oscuro input, body.modo-oscuro textarea {
+  background: #23272f !important;
+  color: #EEEFE0 !important;
+  border: 2px solid var(--verde-borde) !important;
+}
+body.modo-claro input, body.modo-claro textarea {
+  background: #fff !important;
+  color: #23272f !important;
+  border: 2px solid var(--verde-borde) !important;
+}
+
+/* Mejorar legibilidad de textos en modo oscuro para tablas, celdas y botones */
+body.modo-oscuro .zonas-excel-table td,
+body.modo-oscuro .zonas-excel-table,
+body.modo-oscuro .btn-zonas-toggle,
+body.modo-oscuro .btn,
+body.modo-oscuro button {
+  color: #EEEFE0 !important;
+  background: #23272f !important;
+  border-color: var(--verde-borde) !important;
+}
+body.modo-oscuro .zonas-excel-table td {
+  background: #23272f !important;
+  border-color: var(--verde-borde) !important;
+}
+body.modo-oscuro .btn-zonas-toggle {
+  background: var(--verde-principal) !important;
+  color: #23272f !important;
+}
+body.modo-oscuro .btn-zonas-toggle:hover {
+  background: var(--verde-secundario) !important;
+  color: #EEEFE0 !important;
 }

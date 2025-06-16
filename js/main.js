@@ -1,6 +1,15 @@
 // main.js
 
+// Detectar modo claro/oscuro y aplicar clase al body
+function aplicarModoColor() {
+  const modoOscuro = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.body.classList.toggle('modo-oscuro', modoOscuro);
+  document.body.classList.toggle('modo-claro', !modoOscuro);
+}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', aplicarModoColor);
 document.addEventListener('DOMContentLoaded', function() {
+  aplicarModoColor();
+
     // --- SLIDER AUTOMÁTICO PARA CARDS DESTACADAS ---
     // Cambia la imagen de cada slider de programa destacado cada 30 segundos
     document.querySelectorAll('.slider-imagenes').forEach(function(slider) {
@@ -10,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             imgs[idx].classList.remove('active');
             idx = (idx + 1) % imgs.length;
             imgs[idx].classList.add('active');
-        }, 30000); // 30 segundos
+        }, 5000); // 5 segundos
     });
 
     // --- PANEL DE PROGRAMACIÓN ---
@@ -116,5 +125,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     window.addEventListener('resize', renderTablaZonas);
     renderTablaZonas();
+
+    // --- CARRUSEL DE NUESTROS PROGRAMAS ---
+    // Carrusel de Nuestros Programas con rotación circular infinita
+    function initCarruselProgramas() {
+      const track = document.querySelector('.carrusel-track');
+      if (!track) return;
+      const cards = Array.from(track.children);
+      if (cards.length === 0) return;
+      // Clonar los primeros 2 cards al final para efecto circular
+      cards.slice(0,2).forEach(card => track.appendChild(card.cloneNode(true)));
+      let current = 0;
+      const cardWidth = cards[0].offsetWidth + 22; // ancho de card + gap
+      let isTransitioning = false;
+      setInterval(() => {
+        if (isTransitioning) return;
+        current++;
+        track.scrollTo({ left: cardWidth * current, behavior: 'smooth' });
+        // Si llegamos al final de los originales, reiniciamos sin salto
+        if (current === cards.length) {
+          isTransitioning = true;
+          setTimeout(() => {
+            track.scrollTo({ left: 0, behavior: 'auto' });
+            current = 0;
+            isTransitioning = false;
+          }, 400); // espera a que termine el scroll suave
+        }
+      }, 4000);
+    }
+    initCarruselProgramas();
 });
 

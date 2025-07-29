@@ -1,3 +1,46 @@
+// Mostrar/ocultar descripción en cards de programas (ya no se usa, pero se deja por si se reactiva)
+document.addEventListener('DOMContentLoaded', function() {
+  // Carousel para la card del noticiero (7 imágenes .png)
+  const noticieroImgs = [
+    'assets/programas/noticiero/1.png',
+    'assets/programas/noticiero/2.png',
+    'assets/programas/noticiero/3.png',
+    'assets/programas/noticiero/4.png',
+    'assets/programas/noticiero/5.png',
+    'assets/programas/noticiero/6.png',
+    'assets/programas/noticiero/7.png'
+  ];
+  let noticieroIndex = 0;
+  const noticieroImgEl = document.getElementById('noticiero-carousel-img');
+  if (noticieroImgEl) {
+    setInterval(() => {
+      noticieroIndex = (noticieroIndex + 1) % noticieroImgs.length;
+      noticieroImgEl.style.opacity = 0;
+      setTimeout(() => {
+        noticieroImgEl.src = noticieroImgs[noticieroIndex];
+        noticieroImgEl.style.opacity = 1;
+      }, 400);
+    }, 5000);
+  }
+  // Fix para menú hamburguesa en móvil (Bootstrap 5)
+  var navCollapse = document.getElementById('mainNavCollapse');
+  var navLinks = navCollapse ? navCollapse.querySelectorAll('.nav-link') : [];
+  var bsCollapse = null;
+  if (window.bootstrap && navCollapse) {
+    bsCollapse = new window.bootstrap.Collapse(navCollapse, {toggle: false});
+  }
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth < 992 && navCollapse.classList.contains('show')) {
+        if (window.bootstrap && bsCollapse) {
+          bsCollapse.hide();
+        } else {
+          navCollapse.classList.remove('show');
+        }
+      }
+    });
+  });
+});
 
 // Programación semanal (misma para todos los días)
 const programacion = [

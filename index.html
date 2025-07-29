@@ -4,358 +4,430 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NorTv Canal del Pueblo</title>
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
         }
-        .footer {
-            background-color: #343a40;
-            color: #fff;
-            padding: 20px 0;
-        }
-        .footer a {
-            color: #fff;
-            text-decoration: underline;
-        }
-        .carousel-item img {
-            height: 40vw;
-            min-height: 200px;
-            max-height: 400px;
-            object-fit: cover;
-        }
+        .bg-navy { background-color: #001E50 !important; }
+        .bg-lightgray { background-color: #F5F5F5 !important; }
+        .text-navy { color: #001E50 !important; }
+        .text-red { color: #E30613 !important; }
+        .btn-red { background: #E30613; color: #fff; border: none; }
+        .btn-red:hover { background: #b9040e; color: #fff; }
+        .navbar { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .navbar-brand img { height: 48px; margin-right: 10px; }
+        .nav-link.active, .nav-link:focus, .nav-link:hover { color: #E30613 !important; }
+        .cta-btn { background: #E30613; color: #fff; border-radius: 30px; padding: 0.5rem 1.5rem; font-weight: 700; }
+        .cta-btn:hover { background: #b9040e; color: #fff; }
+        .carousel-item img { height: 400px; object-fit: cover; }
         @media (max-width: 767.98px) {
-            .navbar-brand span {
-                font-size: 1rem !important;
-            }
-            .carousel-item img {
-                height: 200px;
-            }
-            .footer .footer-nombre-nortv img {
-                height: 48px !important;
-            }
+            .carousel-item img { height: 200px; }
         }
-        .footer-nombre-nortv img {
-            height: 68px;
-            vertical-align: middle;
-            margin-right: 10px;
+        .card-category { font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .card-category.red { color: #E30613; }
+        .card-category.gray { color: #888; }
+        .blog-date { font-size: 0.85rem; color: #888; }
+        .footer {
+            background-color: #001E50;
+            color: #fff;
+            padding: 40px 0 20px 0;
         }
+        .footer a { color: #fff; text-decoration: underline; }
+        .footer-logo img { height: 48px; }
+        .footer-social img { height: 32px; margin: 0 8px; }
+        .footer-links a { margin: 0 10px; color: #fff; }
+        .footer-links a:hover { color: #E30613; }
+        nav.fixed-top { z-index: 1050; }
+        body { padding-top: 64px !important; }
+        @media (max-width: 991.98px) { body { padding-top: 56px !important; } }
     </style>
 </head>
-<body>
-    <!-- Navbar Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/LogoNorTv.PNG" alt="Logo NorTv" style="height:48px;vertical-align:middle;margin-right:10px;">
-                <span class="fs-5 fw-bold text-light">Conectando contigo, donde estés</span>
-            </a>
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#programacion">Programación</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#nuestros-programas">Programas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cobertura">Cobertura</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body style="font-family: 'Montserrat', Arial, sans-serif; background: #F7F7F7; color: #1A1A1A;">
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm bg-white border-bottom" id="mainNav" style="min-height:44px; height:44px;">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center py-0" href="#" style="height:44px;">
+      <img src="assets/LogoNorTv.PNG" alt="Logo NorTv" style="height:32px;">
+      <span class="fw-bold ms-2 fs-6 text-dark" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1.1rem !important;">NorTv Canal 102</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavCollapse" aria-controls="mainNavCollapse" aria-expanded="false" aria-label="Toggle navigation" style="height:36px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavCollapse">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold align-items-center" style="font-family: 'Montserrat', Arial, sans-serif;">
+        <li class="nav-item mx-1"><a class="nav-link text-uppercase px-2 py-1 text-dark" style="font-size:0.95rem;" href="#noticias">Noticias</a></li>
+        <li class="nav-item mx-1"><a class="nav-link text-uppercase px-2 py-1 text-dark" style="font-size:0.95rem;" href="#programacion">Programación</a></li>
+        <li class="nav-item mx-1"><a class="nav-link text-uppercase px-2 py-1 text-dark" style="font-size:0.95rem;" href="#nosotros">Nosotros</a></li>
+        <li class="nav-item mx-1"><a class="nav-link text-uppercase px-2 py-1 text-dark" style="font-size:0.95rem;" href="#cobertura">Cobertura</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<style>
+body { padding-top: 48px !important; transition: background 0.3s, color 0.3s; }
+.navbar { min-height:44px !important; height:44px !important; background: #fff !important; }
+.navbar-brand img { height:32px !important; }
+.navbar .nav-link { padding-top: 0.2rem !important; padding-bottom: 0.2rem !important; color: #1A1A1A !important; transition: color 0.3s; }
+.navbar .nav-link.active, .navbar .nav-link:hover { color: #d62b28 !important; }
+@media (max-width: 991.98px) { body { padding-top: 44px !important; } }
+</style>
 
-    <!-- Carrusel de Programación Destacada Bootstrap como header visual -->
-    <header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/programas/noticiero/1.webp" class="d-block w-100" alt="Noticias al Día">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Noticias al Día</h5>
-                        <p>Resumen informativo local, nacional e internacional. Sabados y Domingos 12 Am y 7pm.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/programas/pablo-escobar/pablo1.jpg" class="d-block w-100" alt="Pablo Escobar El Patrón">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Pablo Escobar El Patrón</h5>
-                        <p>Serie biográfica. Lunes a Viernes 12:00 MD.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/programas/rey-ganado/rey ganado1.jpg" class="d-block w-100" alt="El Rey del Ganado">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>El Rey del Ganado</h5>
-                        <p>Novela brasileña. Lunes a Viernes 6:00 PM.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Siguiente</span>
-            </button>
+<!-- SECCIÓN SERIES Y PROGRAMAS DESTACADOS -->
+<section id="noticias" class="container py-5" style="border:none !important;">
+  <div class="bg-section shadow-lg rounded-4 p-4 mb-4" style="border:none !important;">
+    <h2 class="fw-bold mb-4" style="font-family: 'Montserrat', Arial, sans-serif; background: transparent; border-radius: 0; box-shadow: none; padding-left: 0; border:none !important;">Series y Programas destacados</h2>
+    <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4">
+      <!-- Card ejemplo, repetir para cada programa -->
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/pablo-escobar/pablo1.jpg" class="card-img-top mx-auto" alt="Pablo Escobar" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-danger mb-1" style="background:#d62b28; font-size:0.85em;">Serie</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Pablo Escobar: El Patrón del Mal</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Lunes a Viernes, 12:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">Una de las series más vistas en Latinoamérica, basada en hechos reales sobre la vida de Pablo Escobar.</div>
+          </div>
         </div>
-    </header>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/rey-ganado/rey ganado2.jpg" class="card-img-top mx-auto" alt="El Rey del Ganado" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-primary mb-1" style="background:#003366; font-size:0.85em;">Novela</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">El Rey del Ganado</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Lunes a Viernes, 6:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">Una historia de amor, poder y traición en el mundo rural brasileño. Un clásico de la televisión.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/zona-musical/musica2.jpg" class="card-img-top mx-auto" alt="Zona Musical" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-secondary mb-1" style="background:#1A1A1A; font-size:0.85em;">Entretenimiento</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Zona Musical</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Todos los días, 4:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">Disfruta de los mejores éxitos musicales, videos y entrevistas con artistas nacionales e internacionales.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/comando elite.jpeg" class="card-img-top mx-auto" alt="Comando Elite" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-success mb-1" style="background:#198754; font-size:0.85em;">Serie</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Comando Elite</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Lunes a Viernes, 5:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">Acción y drama policial inspirados en casos reales de las fuerzas especiales de Colombia.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/lady.jpeg" class="card-img-top mx-auto" alt="Lady la Vendedora" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-warning mb-1" style="background:#ffc107; font-size:0.85em;">Novela</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Lady la Vendedora de Rosas</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Lunes a Viernes, 3:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">La inspiradora historia de Lady Tabares, una joven que lucha por salir adelante en un entorno difícil.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <img src="assets/programas/gameofthone.jpg" class="card-img-top mx-auto" alt="Game of Thrones" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;">
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-dark mb-1" style="background:#343a40; font-size:0.85em;">Serie</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Game of Thrones</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Lunes a Viernes, 7:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">La épica serie de fantasía medieval que cautivó al mundo. Intriga, poder y dragones en Westeros.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card card-mini shadow-sm border-0 rounded-4 bg-white transition d-flex flex-column align-items-center justify-content-between" style="cursor:pointer; min-height:180px; max-width:260px; margin:auto;">
+          <div class="noticiero-carousel-wrapper w-100" style="height:90px;max-width:220px;position:relative;">
+            <img id="noticiero-carousel-img" src="assets/programas/noticiero/1.png" class="card-img-top mx-auto" alt="Noticiero Resumen Semanal" style="height:90px;object-fit:cover;width:100%;max-width:220px;border-radius:12px 12px 0 0;transition:opacity 0.5s;">
+          </div>
+          <div class="card-body p-2 d-flex flex-column align-items-center w-100 text-center" style="flex:1 1 auto;">
+            <span class="badge bg-info mb-1" style="background:#0dcaf0; font-size:0.85em;">Noticiero</span>
+            <h6 class="card-title fw-bold mb-1 w-100" style="font-family: 'Montserrat', Arial, sans-serif; font-size:1em; white-space:normal;">Resumen Semanal</h6>
+            <div class="small text-muted mb-1 w-100" style="white-space:normal;">Sábados y Domingos 12:00 pm, 1:00 pm, 7:00 pm, 8:00 pm</div>
+            <button class="btn btn-link p-0 m-0 text-decoration-none text-primary toggle-desc" style="font-size:0.95em;">Ver descripción</button>
+            <div class="desc-content d-none mt-1 w-100" style="font-size:0.97em; color:#444;">Un resumen con lo más relevante de la semana. Ediciones especiales los fines de semana.</div>
+          </div>
+        </div>
+      </div>
+    <script>
+    // Mostrar/ocultar descripción en cards mini
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.toggle-desc').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const desc = btn.parentElement.querySelector('.desc-content');
+          if (desc) desc.classList.toggle('d-none');
+          btn.textContent = desc && !desc.classList.contains('d-none') ? 'Ocultar descripción' : 'Ver descripción';
+        });
+      });
 
-    <!-- Sección Quiénes Somos adaptada a Bootstrap -->
-    <section id="quienes-somos" class="container my-5">
-        <h2 class="text-center mb-4">Quiénes Somos</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <div class="text-center">
-                    <p>NorTv es mucho más que un canal: es inspiración, es comunidad, es el espacio donde las historias de nuestra gente cobran vida. A través de nuestro programa <strong>Inspírate</strong>, celebramos los logros, sueños y talentos de quienes transforman nuestro entorno. ¡Déjate inspirar cada semana con historias que motivan y conectan!</p>
-                    <div class="alert alert-info text-center mb-3">
-                        ¡Promoción especial este mes!<br>Anúnciate por 1 mes y te regalamos la producción de tu primer spot
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-3">
-                    <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
-                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Fotógrafo con cámara" class="img-fluid rounded">
-                        <div class="small mt-2">Fotografía profesional</div>
-                    </div>
-                    <div class="col-12 col-md-4 mb-3 mb-md-0 text-center">
-                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Grabación de video" class="img-fluid rounded">
-                        <div class="small mt-2">Producción de video</div>
-                    </div>
-                    <div class="col-12 col-md-4 text-center">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Edición de video en PC" class="img-fluid rounded">
-                        <div class="small mt-2">Edición digital</div>
-                    </div>
-                </div>
-                <div class="mt-3 text-center">
-                    <h3 class="h5">¡HAZ QUE TU NEGOCIO BRILLE EN LA PANTALLA!</h3>
-                    <p>¿Quieres aumentar tus ventas y que todos conozcan tu marca?<br>Tu negocio merece ser visto. ¡Lleva tu mensaje a hogares, oficinas y comercios a través de la televisión!</p>
-                    <ul class="list-unstyled">
-                        <li>✔️ Alcance masivo: miles de espectadores diarios</li>
-                        <li>✔️ Spots publicitarios en horarios estratégicos</li>
-                        <li>✔️ Paquetes accesibles para todo tipo de negocio</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+      // Carousel para la card del noticiero (7 imágenes .png)
+      const noticieroImgs = [
+        'assets/programas/noticiero/1.png',
+        'assets/programas/noticiero/2.png',
+        'assets/programas/noticiero/3.png',
+        'assets/programas/noticiero/4.png',
+        'assets/programas/noticiero/5.png',
+        'assets/programas/noticiero/6.png',
+        'assets/programas/noticiero/7.png'
+      ];
+      let noticieroIndex = 0;
+      const noticieroImgEl = document.getElementById('noticiero-carousel-img');
+      if (noticieroImgEl) {
+        setInterval(() => {
+          noticieroIndex = (noticieroIndex + 1) % noticieroImgs.length;
+          noticieroImgEl.style.opacity = 0;
+          setTimeout(() => {
+            noticieroImgEl.src = noticieroImgs[noticieroIndex];
+            noticieroImgEl.style.opacity = 1;
+          }, 400);
+        }, 5000);
+      }
+    });
+    </script>
+    </div>
+  </div>
+</section>
 
-    <!-- Programación como tarjetas -->
-    <section id="programacion" class="container my-5">
-        <h2 class="text-center mb-4">Programación Semanal NorTv</h2>
-        <p class="text-center mb-4">Horarios de lunes a viernes. Sábados y domingos: programación especial.</p>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">8:00 AM</h5>
-                        <p class="card-text">INFANTIL / Caballero del Zodiaco</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">9:00 AM</h5>
-                        <p class="card-text">SERIE ALIAS EL MEXICANO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">10:00 AM</h5>
-                        <p class="card-text">DEJEMONOS DE VARGAS</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">11:00 AM</h5>
-                        <p class="card-text">NOVELA EL PANTANAL</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">12:00 MD</h5>
-                        <p class="card-text">PABLO ESCOBAR EL PATRON</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">1:00 PM</h5>
-                        <p class="card-text">NOVELA NUEVO RICO NUEVO POBRE</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">2:00 PM</h5>
-                        <p class="card-text">K-DRAMA SERIE COREANA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">3:00 PM</h5>
-                        <p class="card-text">NOVELA TODO PRESTADO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">4:00 PM</h5>
-                        <p class="card-text">ZONA MUSICAL</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">5:00 PM</h5>
-                        <p class="card-text">NOVELA LA NIÑA</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">6:00 PM</h5>
-                        <p class="card-text">EL REY DEL GANADO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow-lg h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">7:00 PM</h5>
-                        <p class="card-text">PELÍCULAS</p>
-                    </div>
-                </div>
-            </div>
+<!-- SECCIÓN PROGRAMACIÓN DINÁMICA -->
+<section id="programacion" class="container py-5" style="border:none !important;">
+  <div class="bg-section shadow-lg rounded-4 p-4 mb-4" style="border:none !important;">
+    <h2 class="fw-bold mb-2" style="font-family: 'Montserrat', Arial, sans-serif; background: transparent; border-radius: 0; box-shadow: none; padding-left: 0; border:none !important;">Programación</h2>
+    <div class="mb-3">
+      <span id="programacion-dia" class="badge bg-primary fs-6" style="background:#003366;"></span>
+    </div>
+    <div id="programacion-dinamica" class="table-responsive rounded-4 shadow-sm bg-white p-3 border-0" style="border:none !important;">
+      <!-- Aquí se renderiza la programación -->
+    </div>
+    <div class="text-end mt-2">
+      <button class="btn btn-outline-primary rounded-pill px-4 fw-bold" id="btn-ver-todo" style="border:none;box-shadow:0 1px 4px rgba(0,51,102,0.10);color:#003366;transition:all 0.3s;">
+        Ver programación completa
+      </button>
+    </div>
+    <!-- Modal programación completa -->
+    <div class="modal fade" id="modalProgramacionCompleta" tabindex="-1" aria-labelledby="modalProgramacionCompletaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="modalProgramacionCompletaLabel">Programación completa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <div id="tabla-programacion-completa" class="table-responsive"></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="nuestros-programas" class="container my-5">
-        <h2 class="text-center mb-4">Descubre Nuestros Programas Estrella</h2>
-        <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="card">
-                    <img src="assets/programas/noticiero/1.webp" class="card-img-top" alt="Noticiero">
-                    <div class="card-body">
-                        <h5 class="card-title">Noticias al Día</h5>
-                        <p class="card-text">Resumen informativo local, nacional e internacional. Conduce: Ana López.</p>
-                        <p class="card-text"><small class="text-muted">Lunes a Viernes 8:00 AM – 9:00 AM</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card">
-                    <img src="assets/programas/pablo-escobar/pablo1.jpg" class="card-img-top" alt="Pablo Escobar El Patrón">
-                    <div class="card-body">
-                        <h5 class="card-title">Pablo Escobar El Patrón</h5>
-                        <p class="card-text">Serie biográfica sobre el narcotraficante colombiano. Protagonizada por Andrés Parra.</p>
-                        <p class="card-text"><small class="text-muted">Lunes a Viernes 12:00 MD – 1:00 PM</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card">
-                    <img src="assets/programas/rey-ganado/rey ganado1.jpg" class="card-img-top" alt="El Rey del Ganado">
-                    <div class="card-body">
-                        <h5 class="card-title">El Rey del Ganado</h5>
-                        <p class="card-text">Novela brasileña de éxito internacional. Protagonizada por Antonio Fagundes.</p>
-                        <p class="card-text"><small class="text-muted">Lunes a Viernes 6:00 PM – 7:00 PM</small></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 mb-4">
-                <div class="card">
-                    <img src="assets/programas/zona-musical/musica1.png" class="card-img-top" alt="Zona Musical">
-                    <div class="card-body">
-                        <h5 class="card-title">Zona Musical</h5>
-                        <p class="card-text">Espacio dedicado a la mejor música nacional e internacional.</p>
-                        <p class="card-text"><small class="text-muted">Lunes a Viernes 4:00 PM – 5:00 PM</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SECCIÓN NOSOTROS -->
+<section id="nosotros" class="container py-5">
+  <div class="bg-section shadow-lg rounded-4 p-4 mb-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <img src="assets/LogoNorTv.PNG" alt="Historia NorTv" class="img-fluid rounded-4 shadow-sm mb-4 mb-lg-0" style="max-height:340px;object-fit:contain;background:#F7F7F7;">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3" style="font-family: 'Montserrat', Arial, sans-serif;">¿Quiénes somos?</h2>
+        <hr style="border-top:1.5px solid #d1d1d1;width:60px;margin-left:0;">
+        <p class="mb-3" style="font-family: 'Open Sans', Arial, sans-serif;">NorTv es un canal comprometido con la información, el entretenimiento y la cultura nacional. Nuestra misión es informar, educar y entretener a la familia nicaragüense, promoviendo valores y tradiciones.</p>
+        <h5 class="fw-bold mt-4 mb-2" style="font-family: 'Montserrat', Arial, sans-serif;">Misión</h5>
+        <hr style="border-top:1px solid #d1d1d1;width:40px;margin-left:0;">
+        <p style="font-family: 'Open Sans', Arial, sans-serif;">Brindar una programación variada, de calidad y con sentido social, que refleje la identidad y aspiraciones de nuestro pueblo.</p>
+        <h5 class="fw-bold mt-4 mb-2" style="font-family: 'Montserrat', Arial, sans-serif;">Visión</h5>
+        <hr style="border-top:1px solid #d1d1d1;width:40px;margin-left:0;">
+        <p style="font-family: 'Open Sans', Arial, sans-serif;">Ser el canal líder en innovación, credibilidad y cercanía con la audiencia, contribuyendo al desarrollo de Nicaragua.</p>
+        <h5 class="fw-bold mt-4 mb-2" style="font-family: 'Montserrat', Arial, sans-serif;">Valores</h5>
+        <hr style="border-top:1px solid #d1d1d1;width:40px;margin-left:0;">
+        <ul class="ps-3 valores-lista" style="font-family: 'Open Sans', Arial, sans-serif;">
+          <li>Compromiso</li>
+          <li>Respeto</li>
+          <li>Innovación</li>
+          <li>Responsabilidad social</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="cobertura" class="container my-5">
-        <h2 class="text-center mb-4">Nuestro Alcance Actual</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div style="width:100%;max-width:500px;margin:1.5rem auto 1rem auto;">
-                    <h3 style="text-align:center;margin-bottom:0.5rem;">Ubicación de Oficinas NorTv - Pueblo Nuevo, Jinotega</h3>
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3922.964964073282!2d-85.9993998240497!3d13.09185581243837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f74e6e2e2e2e2e3%3A0x7e7e7e7e7e7e7e7e!2sPueblo%20Nuevo%2C%20Jinotega%2C%20Nicaragua!5e0!3m2!1ses!2sni!4v1718130000000!5m2!1ses!2sni"
-                        width="100%" height="300" style="border:0;border-radius:12px;box-shadow:0 2px 12px rgba(20,33,61,0.10);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+<!-- SECCIÓN COBERTURA DE SEÑAL -->
+<section id="cobertura" class="container py-5">
+  <div class="bg-section shadow-lg rounded-4 p-4 mb-4">
+    <h2 class="fw-bold mb-4" style="font-family: 'Montserrat', Arial, sans-serif; background: transparent; border-radius: 0; box-shadow: none; padding-left: 0;">Cobertura de la señal NorTv</h2>
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="row g-4">
+          <div class="col-12 col-md-4 mb-3 mb-md-0">
+            <div class="bg-white rounded-4 shadow-sm p-3 border-0 w-100 h-100">
+              <h5 class="fw-bold mb-2 text-center text-md-start">Municipios</h5>
+              <ul class="mb-0 ps-3" style="list-style-type: disc;">
+                <li>Jinotega</li>
+                <li>Santa María de Pantasma</li>
+                <li>El Cuá</li>
+                <li>Wiwilí de Jinotega</li>
+                <li>San José de Bocay</li>
+                <li>Rancho Grande</li>
+              </ul>
             </div>
+          </div>
+          <div class="col-12 col-md-8">
+            <div class="bg-white rounded-4 shadow-sm p-3 border-0 w-100 h-100">
+              <h6 class="fw-bold mb-2 text-center text-md-start">Comunidades</h6>
+              <ul class="comunidades-grid mb-0 ps-0" style="width:100%;min-height:220px;list-style:disc inside;">
+                <li>Abicina</li>
+                <li>La Fundadora</li>
+                <li>La Paz de El Tuma</li>
+                <li>La Esperanza</li>
+                <li>El Naranjo</li>
+                <li>Las Lomas</li>
+                <li>Las Cruces 1y2</li>
+                <li>Las Carpas</li>
+                <li>Las Cuchillas</li>
+                <li>Las Morenas</li>
+                <li>Las Pesas</li>
+                <li>Laderas del Sol</li>
+                <li>Linda Vista</li>
+                <li>Los Ángeles</li>
+                <li>Los Llanos</li>
+                <li>Los Cipreses</li>
+                <li>Los Mojones</li>
+                <li>Los Nogales</li>
+                <li>Los Ranchitos</li>
+                <li>Montecristo 1y2</li>
+                <li>San Esteban</li>
+                <li>San Francisco de los Cedros</li>
+                <li>San Juan</li>
+                <li>Santa Rosa</li>
+                <li>Selva Negra</li>
+                <li>Valle Corinto</li>
+                <li>Valle de los Herrera</li>
+                <li>Valle de los Lumbices</li>
+                <li>Valle de los Rivera</li>
+                <li>Villa Nueva</li>
+                <li>Yahoska</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="col-lg-6 d-flex flex-column justify-content-center align-items-start">
+        <div class="w-100 mb-3">
+          <iframe src="https://maps.google.com/maps?q=Jinotega,Nicaragua&t=&z=10&ie=UTF8&iwloc=&output=embed" width="100%" height="260" style="border:0;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="small text-muted">Cobertura en municipios y comunidades rurales de Jinotega.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer Bootstrap -->
-    <footer class="footer mt-5" id="contacto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center mb-3 mb-md-0 text-center">
-                    <h5>Contacto</h5>
-                    <a href="https://wa.me/50584292282" target="_blank" class="btn btn-success mb-2 d-inline-flex align-items-center justify-content-center">
-                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="height:24px;margin-right:8px;vertical-align:middle;filter:invert(1);">
-                        Chatea con nosotros en WhatsApp
-                    </a>
-                    <div class="footer-info-contacto mt-2">
-                        <p class="mb-1"><span style="font-weight:600;">WhatsApp:</span> +505 84292282 / +505 83544153</p>
-                        <p class="mb-0">Visítanos en nuestras oficinas en Pueblo Nuevo, de la gasolinera 100 mts al norte</p>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center text-center">
-                    <h5>Redes Sociales</h5>
-                    <div class="d-flex gap-3 justify-content-center mb-2 flex-wrap">
-                        <a href="https://facebook.com" target="_blank">
-                            <img src="assets/Facebook.svg" alt="Facebook" style="height:40px;">
-                        </a>
-                        <a href="https://tiktok.com" target="_blank">
-                            <img src="assets/tiktok.png" alt="TikTok" style="height:40px;">
-                        </a>
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="height:40px;">
-                        </a>
-                        <a href="https://twitter.com" target="_blank">
-                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter" style="height:40px;">
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="height:40px;">
-                        </a>
-                        <a href="https://www.linkedin.com/" target="_blank">
-                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="height:40px;filter:invert(1);">
-                        </a>
-                    </div>
-                    <div class="footer-nombre-nortv mt-3">
-                        <img src="assets/LogoNorTv.PNG" alt="Logo NorTv">
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-3">
-                <p>&copy; 2025 NorTv. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FOOTER -->
+<footer class="bg-white text-dark border-top shadow-sm py-0 mt-5">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-1" style="min-height:unset; padding-top: 8px; padding-bottom: 8px;">
+    <div class="mb-0 mb-md-0">
+      <img src="assets/LogoNorTv.PNG" alt="Logo NorTv" class="img-fluid" style="height:88px;">
+    </div>
+    <div class="mb-0 mb-md-0 small">
+      <a href="#noticias" class="text-dark text-decoration-none mx-1">Noticias</a>
+      <a href="#programacion" class="text-dark text-decoration-none mx-1">Programación</a>
+      <a href="#nosotros" class="text-dark text-decoration-none mx-1">Nosotros</a>
+      <a href="#cobertura" class="text-dark text-decoration-none mx-1">Cobertura</a>
+    </div>
+    <div class="d-flex flex-column align-items-center small">
+      <div class="mb-1 d-flex flex-row justify-content-center align-items-center gap-3">
+        <a href="https://www.facebook.com/profile.php?id=61558477662355" class="text-dark"><i class="bi bi-facebook" style="font-size:2.1rem;"></i></a>
+        <a href="https://www.tiktok.com/@nortv.canal" class="text-dark"><i class="bi bi-tiktok" style="font-size:2.1rem;"></i></a>
+        <a href="#" class="text-dark"><i class="bi bi-youtube" style="font-size:2.1rem;"></i></a>
+        <a href="#" class="text-dark"><i class="bi bi-twitter-x" style="font-size:2.1rem;"></i></a>
+      </div>
+      <span class="fw-bold" style="font-size:0.95rem;">Chatea con Nosotros</span>
+      <a href="https://wa.me/50582231271" target="_blank" rel="noopener" class="text-success mt-1"><i class="bi bi-whatsapp" style="font-size:2.1rem;"></i></a>
+    </div>
+  </div>
+  <div class="text-center mt-1 small" style="font-size:0.85rem;">&copy; 2025 NorTv. Todos los derechos reservados.</div>
+</footer>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</script>
+<script src="js/main.js"></script>
+</script>
+<style>
+.valores-lista {
+  background: transparent !important;
+}
+.comunidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem 1.5rem;
+  list-style: disc inside;
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .comunidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.comunidades-grid li {
+  margin-bottom: 8px;
+  padding: 2px 0 2px 8px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1em;
+  text-align: left;
+  color: inherit;
+  transition: none;
+  list-style-position: inside;
+  min-width: 0;
+  word-break: break-word;
+}
+.comunidades-grid li:hover {
+  background: #e9ecef;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.bg-section, section, .container, .row, .col-lg-6, .col-md-4, .table-responsive, .card, .rounded-4 {
+  border: none !important;
+  box-shadow: none;
+}
+@media (prefers-color-scheme: dark) {
+  .bg-section, section, .container, .row, .col-lg-6, .col-md-4, .table-responsive, .card, .rounded-4 {
+    border: none !important;
+    box-shadow: none;
+  }
+  .bg-white, .card, .table-responsive {
+    background: #23272b !important;
+    color: #f7f7f7 !important;
+    border: none !important;
+  }
+  .comunidades-grid li {
+    background: transparent;
+    color: #f7f7f7;
+  }
+}
+</style>
 </body>
 </html>

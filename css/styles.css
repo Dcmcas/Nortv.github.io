@@ -1,123 +1,73 @@
-/* Importar fuente Poppins de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* =============================
-   Paleta TV profesional y base
-   ============================= */
-:root {
-  /* Modo claro */
-  --fondo-principal: #F4F7FB;
-  --fondo-secundario: #FFFFFF;
-  --texto-principal: #1A2233;
-  --texto-secundario: #4B5563;
-  --azul-tv: #2563EB;
-  --azul-tv-claro: #3B82F6;
-  --rojo-tv: #EF4444;
-  --amarillo-tv: #FACC15;
-  --amarillo-tv-claro: #FDE047;
-  --sombra-tv: 0 4px 24px rgba(37,99,235,0.10);
-  --sombra-tv-fuerte: 0 8px 32px rgba(37,99,235,0.18);
-  --borde-tv: #2563EB;
-}
-body.modo-oscuro {
-  /* Modo oscuro */
-  --fondo-principal: #131A24;
-  --fondo-secundario: #1A2233;
-  --texto-principal: #F4F7FB;
-  --texto-secundario: #B0B8C1;
-  --azul-tv: #3B82F6;
-  --azul-tv-claro: #60A5FA;
-  --rojo-tv: #F87171;
-  --amarillo-tv: #FDE047;
-  --amarillo-tv-claro: #FEF9C3;
-  --sombra-tv: 0 4px 24px rgba(59,130,246,0.18);
-  --sombra-tv-fuerte: 0 8px 32px rgba(59,130,246,0.28);
-  --borde-tv: #3B82F6;
-}
-body.modo-claro {
-  /* Modo claro explícito */
-  --fondo-principal: #F4F7FB;
-  --fondo-secundario: #FFFFFF;
-  --texto-principal: #1A2233;
-  --texto-secundario: #4B5563;
-  --azul-tv: #2563EB;
-  --azul-tv-claro: #3B82F6;
-  --rojo-tv: #EF4444;
-  --amarillo-tv: #FACC15;
-  --amarillo-tv-claro: #FDE047;
-  --sombra-tv: 0 4px 24px rgba(37,99,235,0.10);
-  --sombra-tv-fuerte: 0 8px 32px rgba(37,99,235,0.18);
-  --borde-tv: #2563EB;
-}
-
-/* Fuente global */
-body, html {
-  font-family: 'Poppins', Arial, sans-serif;
-  box-sizing: border-box;
-  margin: 0;
-  background: var(--fondo-principal);
-  color: var(--texto-principal);
-  padding: 2vw;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
-}
+/* Solo lo esencial para la visual del sitio actual */
 
 html { scroll-behavior: smooth; }
 
-/* =============================
-   Bordes redondeados y sombra global
-   ============================= */
-section, header, footer, .overlay, .programacion-panel, .programacion-detalle, .dias-lista, .programas, .municipios-cards, .municipio-card, .card, .btn, button, .dia-btn, .footer-contacto-panel, .footer-redes-panel, form, input, textarea, .municipio-header, .municipio-comunidades, .footer-info-contacto, .redes-sociales, .footer-contacto-panel form, .footer-redes-panel, .dias-cards, .dia-card {
-  border-radius: 18px !important;
-  box-shadow: var(--sombra-tv);
-  background: var(--fondo-secundario);
-  color: var(--texto-principal);
-}
-.card:hover, .municipio-card:hover, .dia-card:hover, .btn:hover, button:hover, .dia-btn:hover, .municipio-card.expandido, .dia-card.expanded {
-  box-shadow: var(--sombra-tv-fuerte);
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #F7F7F7;
+  color: #1A1A1A;
+  margin: 0;
 }
 
-/* =============================
-   Centrado de texto global en secciones
-   ============================= */
-section, section * {
-  text-align: center !important;
+.comunidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem 1.5rem;
+  list-style: disc inside;
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .comunidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.comunidades-grid li {
+  margin-bottom: 8px;
+  padding: 2px 0 2px 8px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1em;
+  text-align: left;
+  color: inherit;
+  transition: none;
+  list-style-position: inside;
+  min-width: 0;
+  word-break: break-word;
+}
+.comunidades-grid li:hover {
+  background: #e9ecef;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 
-/* =============================
-   Header y logo
-   ============================= */
-header .hero {
-  position: relative;
-  height: 60vh;
-  min-height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: var(--fondo-principal);
-  border: 2px solid var(--borde-tv);
-}
-header .overlay {
-  position: relative;
-  z-index: 2;
-  background: var(--fondo-secundario);
-  border: 2px solid var(--borde-tv);
-  padding: 2rem 1rem;
+.bg-section, section, .container, .row, .col-lg-6, .col-md-4, .table-responsive, .card, .rounded-4 {
+  border: none !important;
+  box-shadow: none;
 }
 
-/* =============================
-   Inputs y formularios
-   ============================= */
-input, textarea {
-  background: var(--fondo-secundario) !important;
-  color: var(--texto-principal) !important;
-  border: 2px solid var(--borde-tv) !important;
+@media (prefers-color-scheme: dark) {
+  .bg-section, section, .container, .row, .col-lg-6, .col-md-4, .table-responsive, .card, .rounded-4 {
+    border: none !important;
+    box-shadow: none;
+  }
+  .bg-white, .card, .table-responsive {
+    background: #23272b !important;
+    color: #f7f7f7 !important;
+    border: none !important;
+  }
+  .comunidades-grid li {
+    background: transparent;
+    color: #f7f7f7;
+  }
 }
-::placeholder {
-  color: var(--texto-secundario) !important;
-  opacity: 0.8 !important;
+
+
+.valores-lista {
+  background: transparent !important;
 }
 
 /* =============================
@@ -1482,4 +1432,30 @@ body.modo-claro footer h2 {
   color: #1A2233 !important;
   text-shadow: none !important;
   opacity: 1 !important;
+}
+
+/* Hover rojo para la tabla de programación */
+#tabla-prog-nor.table-hover>tbody>tr:hover {
+  background-color: #ffe5e5 !important;
+}
+
+/* Badge solo texto para Finalizó y Próximo */
+.badge.bg-secondary {
+  background: none !important;
+  color: #444 !important;
+  border: none !important;
+  font-weight: 600;
+}
+.badge.bg-info.text-dark {
+  background: none !important;
+  color: #007bff !important;
+  border: none !important;
+  font-weight: 600;
+}
+
+/* Botón Ver programación completa hover rojo */
+#btn-ver-todo:hover {
+  background: #E30613 !important;
+  color: #fff !important;
+  border: none !important;
 }
